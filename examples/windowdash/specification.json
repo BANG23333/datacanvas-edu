@@ -1,0 +1,622 @@
+{
+  "version": "0.1-proposed",
+  "case_id": "windowdash",
+  "title": "WindowDash",
+  "domain": "Food delivery analytics",
+  "record_unit": "One food-delivery platform order",
+  "business_context": "WindowDash is a fictional New York food-delivery platform. Explore customer behavior, cuisine choices, and operational patterns to recommend management actions.",
+  "learner_profile": "Business-school introductory analytics students with limited programming experience.",
+  "ai_policy": "AI tools are allowed throughout. You remain responsible for your data handling, evidence, and conclusions.",
+  "learning_objectives": [
+    {
+      "id": "FRAME",
+      "description": "Frame useful business questions and explain the comparisons selected."
+    },
+    {
+      "id": "VERIFY",
+      "description": "Guide AI exploration and verify the calculations supporting a finding."
+    },
+    {
+      "id": "INTERPRET",
+      "description": "Communicate evidence-based recommendations and distinguish observations from causal hypotheses."
+    }
+  ],
+  "row_count": 15000,
+  "columns": [
+    {
+      "name": "OrderID",
+      "type": "string",
+      "description": "Unique order identifier",
+      "unit": "category",
+      "unique": true
+    },
+    {
+      "name": "ZipCode",
+      "type": "string",
+      "description": "Order location",
+      "unit": "category",
+      "categories": [
+        "10003",
+        "10011",
+        "10036",
+        "11201",
+        "11215"
+      ]
+    },
+    {
+      "name": "Date",
+      "type": "datetime",
+      "description": "Order timestamp in the fictional local calendar; no timezone encoded",
+      "unit": "local date/time",
+      "min": "2024-01-01T00:00:00",
+      "max": "2024-12-31T23:59:59"
+    },
+    {
+      "name": "CustomerAge",
+      "type": "integer",
+      "description": "Customer age",
+      "unit": "years",
+      "min": 18,
+      "max": 74
+    },
+    {
+      "name": "OrderType",
+      "type": "string",
+      "description": "Fulfillment service",
+      "unit": "category",
+      "categories": [
+        "Delivery",
+        "Pickup"
+      ]
+    },
+    {
+      "name": "Cuisine",
+      "type": "string",
+      "description": "Cuisine category",
+      "unit": "category",
+      "categories": [
+        "Pizza",
+        "Asian",
+        "Burger",
+        "Mexican",
+        "Healthy",
+        "Dessert"
+      ]
+    },
+    {
+      "name": "OrderPrice",
+      "type": "number",
+      "description": "Order value",
+      "unit": "USD",
+      "min": 8
+    },
+    {
+      "name": "TipAmount",
+      "type": "number",
+      "description": "Tip amount",
+      "unit": "USD",
+      "min": 0
+    },
+    {
+      "name": "CustomerRating",
+      "type": "integer",
+      "description": "Order rating",
+      "unit": "rating points",
+      "min": 1,
+      "max": 5
+    },
+    {
+      "name": "DeliveryTime",
+      "type": "number",
+      "description": "Delivery duration; not applicable to Pickup",
+      "unit": "minutes",
+      "min": 10,
+      "missing_when": [
+        {
+          "field": "OrderType",
+          "op": "eq",
+          "value": "Pickup"
+        }
+      ]
+    }
+  ],
+  "patterns": [
+    {
+      "id": "WD01",
+      "title": "Campus late-evening cuisine",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "What management question is informed by campus late-evening cuisine?",
+      "generation_rule": "Preserve the existing audited case generation rules; the check defines a narrowed operational target.",
+      "interaction_policy": "Cuisine rules apply sequentially. The final 10011 override replaces earlier January, Sunday, and age effects. Dessert pricing replaces location price boosts.",
+      "interpretation_limits": "Synthetic associations do not establish psychological mechanisms, occupation, household size, basket quantity, or causal effects. Only the explicitly checked subclaims are automatically verified.",
+      "credit": "major",
+      "check_ids": [
+        "WD01-ASIAN"
+      ]
+    },
+    {
+      "id": "WD02",
+      "title": "Higher location order values",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "What management question is informed by higher location order values?",
+      "generation_rule": "Preserve the existing audited case generation rules; the check defines a narrowed operational target.",
+      "interaction_policy": "Cuisine rules apply sequentially. The final 10011 override replaces earlier January, Sunday, and age effects. Dessert pricing replaces location price boosts.",
+      "interpretation_limits": "Synthetic associations do not establish psychological mechanisms, occupation, household size, basket quantity, or causal effects. Only the explicitly checked subclaims are automatically verified.",
+      "credit": "major",
+      "check_ids": [
+        "WD02-PRICE"
+      ]
+    },
+    {
+      "id": "WD03",
+      "title": "Weekday lunch fulfillment",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "What management question is informed by weekday lunch fulfillment?",
+      "generation_rule": "Preserve the existing audited case generation rules; the check defines a narrowed operational target.",
+      "interaction_policy": "Cuisine rules apply sequentially. The final 10011 override replaces earlier January, Sunday, and age effects. Dessert pricing replaces location price boosts.",
+      "interpretation_limits": "Synthetic associations do not establish psychological mechanisms, occupation, household size, basket quantity, or causal effects. Only the explicitly checked subclaims are automatically verified.",
+      "credit": "major",
+      "check_ids": [
+        "WD03-PICKUP"
+      ]
+    },
+    {
+      "id": "WD04",
+      "title": "Sunday evening cuisine mix",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "What management question is informed by sunday evening cuisine mix?",
+      "generation_rule": "Preserve the existing audited case generation rules; the check defines a narrowed operational target.",
+      "interaction_policy": "Cuisine rules apply sequentially. The final 10011 override replaces earlier January, Sunday, and age effects. Dessert pricing replaces location price boosts.",
+      "interpretation_limits": "Synthetic associations do not establish psychological mechanisms, occupation, household size, basket quantity, or causal effects. Only the explicitly checked subclaims are automatically verified.",
+      "credit": "major",
+      "check_ids": [
+        "WD04-DESSERT"
+      ]
+    },
+    {
+      "id": "WD05",
+      "title": "January cuisine mix",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "What management question is informed by january cuisine mix?",
+      "generation_rule": "Preserve the existing audited case generation rules; the check defines a narrowed operational target.",
+      "interaction_policy": "Cuisine rules apply sequentially. The final 10011 override replaces earlier January, Sunday, and age effects. Dessert pricing replaces location price boosts.",
+      "interpretation_limits": "Synthetic associations do not establish psychological mechanisms, occupation, household size, basket quantity, or causal effects. Only the explicitly checked subclaims are automatically verified.",
+      "credit": "major",
+      "check_ids": [
+        "WD05-JANUARY"
+      ]
+    },
+    {
+      "id": "WD06",
+      "title": "Service-specific tipping",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "What management question is informed by service-specific tipping?",
+      "generation_rule": "Preserve the existing audited case generation rules; the check defines a narrowed operational target.",
+      "interaction_policy": "Cuisine rules apply sequentially. The final 10011 override replaces earlier January, Sunday, and age effects. Dessert pricing replaces location price boosts.",
+      "interpretation_limits": "Synthetic associations do not establish psychological mechanisms, occupation, household size, basket quantity, or causal effects. Only the explicitly checked subclaims are automatically verified.",
+      "credit": "major",
+      "check_ids": [
+        "WD06-CORRELATION",
+        "WD06-ZERO"
+      ]
+    },
+    {
+      "id": "WD07",
+      "title": "Age-group cuisine differences",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "What management question is informed by age-group cuisine differences?",
+      "generation_rule": "Preserve the existing audited case generation rules; the check defines a narrowed operational target.",
+      "interaction_policy": "Cuisine rules apply sequentially. The final 10011 override replaces earlier January, Sunday, and age effects. Dessert pricing replaces location price boosts.",
+      "interpretation_limits": "Synthetic associations do not establish psychological mechanisms, occupation, household size, basket quantity, or causal effects. Only the explicitly checked subclaims are automatically verified.",
+      "credit": "major",
+      "check_ids": [
+        "WD07-AGE"
+      ]
+    },
+    {
+      "id": "WD08",
+      "title": "Geographic Healthy concentration",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "What management question is informed by geographic healthy concentration?",
+      "generation_rule": "Preserve the existing audited case generation rules; the check defines a narrowed operational target.",
+      "interaction_policy": "Cuisine rules apply sequentially. The final 10011 override replaces earlier January, Sunday, and age effects. Dessert pricing replaces location price boosts.",
+      "interpretation_limits": "Synthetic associations do not establish psychological mechanisms, occupation, household size, basket quantity, or causal effects. Only the explicitly checked subclaims are automatically verified.",
+      "credit": "major",
+      "check_ids": [
+        "WD08-HEALTHY"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "WD01-ASIAN",
+      "description": "Asian share in 10003 at 22:00\u201323:59",
+      "metric": "share",
+      "where": [
+        {
+          "field": "ZipCode",
+          "op": "eq",
+          "value": "10003"
+        },
+        {
+          "field": "Date",
+          "op": "ge",
+          "value": 22,
+          "part": "hour"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.5
+      },
+      "event": [
+        {
+          "field": "Cuisine",
+          "op": "eq",
+          "value": "Asian"
+        }
+      ]
+    },
+    {
+      "id": "WD02-PRICE",
+      "description": "Mean order-price difference in USD: 11215 minus other ZIPs",
+      "metric": "mean_difference",
+      "where": [
+        {
+          "field": "ZipCode",
+          "op": "eq",
+          "value": "11215"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 25
+      },
+      "compare_where": [
+        {
+          "field": "ZipCode",
+          "op": "ne",
+          "value": "11215"
+        }
+      ],
+      "min_compare_n": 100,
+      "field": "OrderPrice"
+    },
+    {
+      "id": "WD03-PICKUP",
+      "description": "Weekday lunch Pickup-share difference: 10036 minus other ZIPs",
+      "metric": "share_difference",
+      "where": [
+        {
+          "field": "ZipCode",
+          "op": "eq",
+          "value": "10036"
+        },
+        {
+          "field": "Date",
+          "op": "le",
+          "value": 4,
+          "part": "weekday"
+        },
+        {
+          "field": "Date",
+          "op": "in",
+          "value": [
+            11,
+            12,
+            13
+          ],
+          "part": "hour"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.4
+      },
+      "compare_where": [
+        {
+          "field": "ZipCode",
+          "op": "ne",
+          "value": "10036"
+        },
+        {
+          "field": "Date",
+          "op": "le",
+          "value": 4,
+          "part": "weekday"
+        },
+        {
+          "field": "Date",
+          "op": "in",
+          "value": [
+            11,
+            12,
+            13
+          ],
+          "part": "hour"
+        }
+      ],
+      "min_compare_n": 100,
+      "event": [
+        {
+          "field": "OrderType",
+          "op": "eq",
+          "value": "Pickup"
+        }
+      ]
+    },
+    {
+      "id": "WD04-DESSERT",
+      "description": "Evening Dessert-share difference: Sunday minus other weekdays",
+      "metric": "share_difference",
+      "where": [
+        {
+          "field": "Date",
+          "op": "eq",
+          "value": 6,
+          "part": "weekday"
+        },
+        {
+          "field": "Date",
+          "op": "in",
+          "value": [
+            18,
+            19,
+            20,
+            21,
+            22
+          ],
+          "part": "hour"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.2
+      },
+      "compare_where": [
+        {
+          "field": "Date",
+          "op": "ne",
+          "value": 6,
+          "part": "weekday"
+        },
+        {
+          "field": "Date",
+          "op": "in",
+          "value": [
+            18,
+            19,
+            20,
+            21,
+            22
+          ],
+          "part": "hour"
+        }
+      ],
+      "min_compare_n": 100,
+      "event": [
+        {
+          "field": "Cuisine",
+          "op": "eq",
+          "value": "Dessert"
+        }
+      ]
+    },
+    {
+      "id": "WD05-JANUARY",
+      "description": "Healthy-share difference: January minus other months",
+      "metric": "share_difference",
+      "where": [
+        {
+          "field": "Date",
+          "op": "eq",
+          "value": 1,
+          "part": "month"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.06
+      },
+      "compare_where": [
+        {
+          "field": "Date",
+          "op": "ne",
+          "value": 1,
+          "part": "month"
+        }
+      ],
+      "min_compare_n": 100,
+      "event": [
+        {
+          "field": "Cuisine",
+          "op": "eq",
+          "value": "Healthy"
+        }
+      ]
+    },
+    {
+      "id": "WD06-CORRELATION",
+      "description": "Delivery order-price and tip correlation",
+      "metric": "correlation",
+      "where": [
+        {
+          "field": "OrderType",
+          "op": "eq",
+          "value": "Delivery"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.8
+      },
+      "x": "OrderPrice",
+      "y": "TipAmount"
+    },
+    {
+      "id": "WD06-ZERO",
+      "description": "Pickup zero-tip share",
+      "metric": "share",
+      "where": [
+        {
+          "field": "OrderType",
+          "op": "eq",
+          "value": "Pickup"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.85
+      },
+      "event": [
+        {
+          "field": "TipAmount",
+          "op": "eq",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "WD07-AGE",
+      "description": "Dessert-share difference: ages 18\u201324 minus ages 25\u201374",
+      "metric": "share_difference",
+      "where": [
+        {
+          "field": "CustomerAge",
+          "op": "lt",
+          "value": 25
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.1
+      },
+      "compare_where": [
+        {
+          "field": "CustomerAge",
+          "op": "ge",
+          "value": 25
+        }
+      ],
+      "min_compare_n": 100,
+      "event": [
+        {
+          "field": "Cuisine",
+          "op": "eq",
+          "value": "Dessert"
+        }
+      ]
+    },
+    {
+      "id": "WD08-HEALTHY",
+      "description": "Healthy share in ZIP 10011",
+      "metric": "share",
+      "where": [
+        {
+          "field": "ZipCode",
+          "op": "eq",
+          "value": "10011"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.5
+      },
+      "event": [
+        {
+          "field": "Cuisine",
+          "op": "eq",
+          "value": "Healthy"
+        }
+      ]
+    }
+  ],
+  "parameters": {},
+  "assignment": {
+    "requirements": [
+      "Submit a PDF or DOCX report with at least five distinct visualizations, each supporting a unique finding.",
+      "Use at least three chart types; explain each visualization in one or two sentences.",
+      "Conclude with a management recommendation of at most 200 words.",
+      "For Colab, retain and submit the course-required shared script link. For Agentic tools, retain a Markdown conversation document; label summaries as summaries rather than verbatim logs."
+    ]
+  },
+  "rubric": {
+    "complete": false,
+    "total_points": 50,
+    "criteria": [
+      {
+        "name": "Unique patterns",
+        "points": 30,
+        "description": "Four or more major patterns: 30 points; three: 25; two: 20; one: 15. Preserve the current source tiers."
+      }
+    ],
+    "notes": [
+      "Valid minor findings count as 0.5 pattern. Fractional and zero-pattern tier application remains unresolved.",
+      "At least five charts; missing charts incur five-point deductions. At least three chart types; two types incur five points, one type ten points.",
+      "Remaining 20-point allocation, deduction scope/floors, and exact excessive-length rules require instructor reconciliation. Do not compute total student grades from this incomplete draft."
+    ]
+  },
+  "decisions": [
+    {
+      "topic": "Case source",
+      "value": "Existing WindowDash code and current rubric, reconciled against the numerical audit.",
+      "source": "Local instructor materials",
+      "status": "recorded"
+    },
+    {
+      "topic": "Operational thresholds",
+      "value": "Proposed after inspecting the seed-42 audit. These are calibration choices, not prespecified research criteria or accepted instructor changes.",
+      "source": "Agent engineering proposal",
+      "status": "proposed"
+    }
+  ],
+  "review": {
+    "design_status": "pending",
+    "evidence": "Development example; no final instructor acceptance is claimed."
+  },
+  "runtime_dependencies": [
+    "numpy",
+    "pandas"
+  ]
+}

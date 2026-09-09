@@ -1,0 +1,225 @@
+{
+  "version": "0.1-proposed",
+  "case_id": "equipment-rental",
+  "title": "Rental Operations",
+  "domain": "Equipment rental operations",
+  "record_unit": "One completed equipment rental",
+  "business_context": "A fictional equipment-rental provider wants to understand inspection workload and turnaround after returns. Identify useful patterns, check whether averages alone are informative, and recommend where operations managers should investigate.",
+  "learner_profile": "Business-school introductory analytics students with limited programming experience.",
+  "ai_policy": "AI tools are allowed throughout. You remain responsible for your data handling, evidence, and conclusions.",
+  "learning_objectives": [
+    {
+      "id": "FRAME",
+      "description": "Frame useful business questions and explain the comparisons selected."
+    },
+    {
+      "id": "VERIFY",
+      "description": "Guide AI exploration and verify the calculations supporting a finding."
+    },
+    {
+      "id": "INTERPRET",
+      "description": "Communicate evidence-based recommendations and distinguish observations from causal hypotheses."
+    }
+  ],
+  "row_count": 3000,
+  "columns": [
+    {
+      "name": "RentalID",
+      "type": "string",
+      "description": "Unique rental identifier",
+      "unit": "category",
+      "unique": true
+    },
+    {
+      "name": "EquipmentClass",
+      "type": "string",
+      "description": "Equipment family",
+      "unit": "category",
+      "categories": [
+        "PowerTool",
+        "Lift",
+        "Generator"
+      ]
+    },
+    {
+      "name": "DaysBooked",
+      "type": "integer",
+      "description": "Duration of the completed rental",
+      "unit": "days",
+      "min": 1,
+      "max": 30
+    },
+    {
+      "name": "ServiceTier",
+      "type": "string",
+      "description": "Service level on the rental",
+      "unit": "category",
+      "categories": [
+        "Basic",
+        "Priority"
+      ]
+    },
+    {
+      "name": "TurnaroundHours",
+      "type": "number",
+      "description": "Hours from return to availability for the next rental",
+      "unit": "hours",
+      "min": 0
+    },
+    {
+      "name": "RepairNeeded",
+      "type": "boolean",
+      "description": "Whether return inspection identified a repair need",
+      "unit": "boolean"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "RENT1",
+      "title": "Duration and turnaround",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "Do long rentals require longer turnaround after return?",
+      "generation_rule": "Turnaround includes a quadratic duration component and service-level adjustment.",
+      "interaction_policy": "Service tier adds variation; compare the duration groups and inspect possible tier differences.",
+      "interpretation_limits": "A median gap does not alone establish a quadratic shape or the causal effect of extending one rental. Inspect a duration plot before making a shape claim.",
+      "credit": "major",
+      "check_ids": [
+        "DURATION-MEDIAN"
+      ]
+    },
+    {
+      "id": "RENT2",
+      "title": "Equipment-specific repair rates",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "Which equipment groups need more inspection attention?",
+      "generation_rule": "Use a higher repair probability for PowerTool rentals.",
+      "interaction_policy": "Repair assignment is separate from duration and turnaround in this teaching scenario.",
+      "interpretation_limits": "No repair cost, staffing cost, or safety incident outcome is measured.",
+      "credit": "major",
+      "check_ids": [
+        "CLASS-REPAIR"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "DURATION-MEDIAN",
+      "description": "Median turnaround-hour difference: rentals at least 20 days minus rentals at most 5 days",
+      "metric": "custom",
+      "where": [
+        {
+          "field": "DaysBooked",
+          "op": "ge",
+          "value": 20
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 12
+      },
+      "compare_where": [
+        {
+          "field": "DaysBooked",
+          "op": "le",
+          "value": 5
+        }
+      ],
+      "min_compare_n": 100,
+      "custom_name": "median_turnaround_difference"
+    },
+    {
+      "id": "CLASS-REPAIR",
+      "description": "Repair-share difference: PowerTool minus other equipment",
+      "metric": "share_difference",
+      "where": [
+        {
+          "field": "EquipmentClass",
+          "op": "eq",
+          "value": "PowerTool"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.13
+      },
+      "compare_where": [
+        {
+          "field": "EquipmentClass",
+          "op": "ne",
+          "value": "PowerTool"
+        }
+      ],
+      "min_compare_n": 100,
+      "event": [
+        {
+          "field": "RepairNeeded",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    }
+  ],
+  "parameters": {
+    "base_hours": 6,
+    "duration_quadratic": 0.035,
+    "priority_reduction": 2,
+    "power_tool_repair": 0.3,
+    "other_repair": 0.08,
+    "noise_sd": 1.2
+  },
+  "assignment": {
+    "requirements": [
+      "Support at least two operational findings with appropriate visualizations.",
+      "For one finding, explain a robust summary such as a median and compare it with a mean.",
+      "Write a recommendation that acknowledges what the synthetic records do not measure."
+    ]
+  },
+  "rubric": {
+    "complete": true,
+    "total_points": 60,
+    "criteria": [
+      {
+        "name": "Analytical evidence",
+        "points": 36.0,
+        "description": "Full credit requires the case's major relationships, correct comparisons and denominators, and reproducible evidence. Award proportional credit for independently supported partial findings; unsupported claims earn no discovery credit."
+      },
+      {
+        "name": "Business interpretation",
+        "points": 15.0,
+        "description": "Recommendations follow the evidence, acknowledge unmeasured explanations, and explain business relevance. Reduce credit for unsupported mechanisms or irrelevant recommendations."
+      },
+      {
+        "name": "Communication",
+        "points": 9.0,
+        "description": "Charts are appropriate, clearly labeled, and accompanied by concise interpretations that meet the assignment requirements. Award partial credit according to clarity and completeness."
+      }
+    ],
+    "notes": [
+      "Count duplicate conclusions once, even when visualized differently.",
+      "Review valid unlisted findings on their evidence and relevance; they are not automatically false positives.",
+      "The key is not exhaustive. These proposed descriptors require instructor review before actual grading."
+    ]
+  },
+  "decisions": [
+    {
+      "topic": "Example parameters and rubric",
+      "value": "Proposed by the implementing Agent for an engineering walkthrough, not supplied by a study participant.",
+      "source": "Engineering design",
+      "status": "proposed"
+    }
+  ],
+  "review": {
+    "design_status": "pending",
+    "evidence": "Development example; no final instructor acceptance is claimed."
+  }
+}

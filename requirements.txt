@@ -1,0 +1,4 @@
+# Optional example and chart dependencies. The numerical helper uses the standard library.
+matplotlib>=3.8,<4
+numpy>=1.26,<3
+pandas>=2.2,<3

@@ -1,0 +1,13 @@
+{
+  "version": "0.1.1",
+  "zip": "datacanvas-edu-v0.1.1.zip",
+  "sha256": "add738bb4cceb5fad3f414837479896eac8ec4960de7d16cfbdc9771acabb229",
+  "file_count": 5,
+  "files": {
+    "datacanvas-edu/SKILL.md": "8a7b0f94c05e18b31ae517cd264705314960498c1a9877d2d51e5eba83e0a612",
+    "datacanvas-edu/agents/openai.yaml": "2e9f0a060c239a5e1fd13e3ec39267be56b422bcb51b337b96be354ff7bb8df6",
+    "datacanvas-edu/references/specification.md": "17962da94279078a2757ae823352a8fc7949caf85aada64fd36db1ca0b45ea34",
+    "datacanvas-edu/references/verification.md": "081f6c879bcc7f5602c07159984866ff90a9ff1bf3058d6b94145e2dcfcd5ec9",
+    "datacanvas-edu/scripts/dataset_workflow.py": "59e5f7abdcba76cc1665bbee6ca41f076d50afec7d007e0a0367ee9058ba1b5d"
+  }
+}

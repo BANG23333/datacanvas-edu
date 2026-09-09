@@ -1,0 +1,237 @@
+{
+  "version": "0.1-proposed",
+  "case_id": "marketing-campaigns",
+  "title": "Campaign Decisions",
+  "domain": "Marketing campaign analytics",
+  "record_unit": "One campaign contact, not a unique person across campaigns",
+  "business_context": "A fictional retailer wants to assess campaign targeting and contact costs. Explore useful comparisons before recommending how managers should allocate attention and budget.",
+  "learner_profile": "Business-school introductory analytics students with limited programming experience.",
+  "ai_policy": "AI tools are allowed throughout. You remain responsible for your data handling, evidence, and conclusions.",
+  "learning_objectives": [
+    {
+      "id": "FRAME",
+      "description": "Frame useful business questions and explain the comparisons selected."
+    },
+    {
+      "id": "VERIFY",
+      "description": "Guide AI exploration and verify the calculations supporting a finding."
+    },
+    {
+      "id": "INTERPRET",
+      "description": "Communicate evidence-based recommendations and distinguish observations from causal hypotheses."
+    }
+  ],
+  "row_count": 5000,
+  "columns": [
+    {
+      "name": "ContactID",
+      "type": "string",
+      "description": "Unique campaign-contact identifier",
+      "unit": "category",
+      "unique": true
+    },
+    {
+      "name": "Channel",
+      "type": "string",
+      "description": "Acquisition channel",
+      "unit": "category",
+      "categories": [
+        "Email",
+        "Social",
+        "Search"
+      ]
+    },
+    {
+      "name": "Segment",
+      "type": "string",
+      "description": "Customer relationship segment",
+      "unit": "category",
+      "categories": [
+        "New",
+        "Existing"
+      ]
+    },
+    {
+      "name": "Converted",
+      "type": "boolean",
+      "description": "Whether the contact resulted in a purchase",
+      "unit": "boolean"
+    },
+    {
+      "name": "ContactCost",
+      "type": "number",
+      "description": "Allocated campaign cost for this contact",
+      "unit": "USD",
+      "min": 0
+    },
+    {
+      "name": "PurchaseValue",
+      "type": "number",
+      "description": "Purchase value; zero when there is no conversion",
+      "unit": "USD",
+      "min": 0
+    }
+  ],
+  "patterns": [
+    {
+      "id": "MKT1",
+      "title": "Email conversion differs by relationship segment",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "Should Email targeting distinguish new and existing relationships?",
+      "generation_rule": "Set separate Email conversion probabilities by relationship segment.",
+      "interaction_policy": "Other channels use the same baseline probability; this is a conditional effect, not an overall customer-quality claim.",
+      "interpretation_limits": "Campaign contact outcomes do not identify the causal effect of targeting or long-term customer value.",
+      "credit": "major",
+      "check_ids": [
+        "EMAIL-SEGMENT"
+      ]
+    },
+    {
+      "id": "MKT2",
+      "title": "Contact cost differs by channel",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "Which channels consume more allocated cost per contact?",
+      "generation_rule": "Draw costs around channel-specific means.",
+      "interaction_policy": "Contact cost and conversion use distinct rules; higher cost does not imply better return.",
+      "interpretation_limits": "Per-contact cost alone cannot establish campaign profitability or the best allocation.",
+      "credit": "major",
+      "check_ids": [
+        "CHANNEL-COST"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "EMAIL-SEGMENT",
+      "description": "Conversion-share difference: existing minus new contacts within Email",
+      "metric": "share_difference",
+      "where": [
+        {
+          "field": "Channel",
+          "op": "eq",
+          "value": "Email"
+        },
+        {
+          "field": "Segment",
+          "op": "eq",
+          "value": "Existing"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.15
+      },
+      "compare_where": [
+        {
+          "field": "Channel",
+          "op": "eq",
+          "value": "Email"
+        },
+        {
+          "field": "Segment",
+          "op": "eq",
+          "value": "New"
+        }
+      ],
+      "min_compare_n": 100,
+      "event": [
+        {
+          "field": "Converted",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "CHANNEL-COST",
+      "description": "Mean contact cost difference in USD: Search minus Email",
+      "metric": "mean_difference",
+      "where": [
+        {
+          "field": "Channel",
+          "op": "eq",
+          "value": "Search"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.5
+      },
+      "compare_where": [
+        {
+          "field": "Channel",
+          "op": "eq",
+          "value": "Email"
+        }
+      ],
+      "min_compare_n": 100,
+      "field": "ContactCost"
+    }
+  ],
+  "parameters": {
+    "email_existing_probability": 0.42,
+    "email_new_probability": 0.16,
+    "other_probability": 0.2,
+    "cost_means": {
+      "Email": 0.18,
+      "Social": 0.43,
+      "Search": 0.9
+    },
+    "cost_sd": 0.04
+  },
+  "assignment": {
+    "requirements": [
+      "Present at least three suitable visualizations and explain the comparison supporting each finding.",
+      "Write a management recommendation of at most 180 words.",
+      "Retain your analysis and describe one numerical check of an AI-generated claim."
+    ]
+  },
+  "rubric": {
+    "complete": true,
+    "total_points": 40,
+    "criteria": [
+      {
+        "name": "Analytical evidence",
+        "points": 24.0,
+        "description": "Full credit requires the case's major relationships, correct comparisons and denominators, and reproducible evidence. Award proportional credit for independently supported partial findings; unsupported claims earn no discovery credit."
+      },
+      {
+        "name": "Business interpretation",
+        "points": 10.0,
+        "description": "Recommendations follow the evidence, acknowledge unmeasured explanations, and explain business relevance. Reduce credit for unsupported mechanisms or irrelevant recommendations."
+      },
+      {
+        "name": "Communication",
+        "points": 6.0,
+        "description": "Charts are appropriate, clearly labeled, and accompanied by concise interpretations that meet the assignment requirements. Award partial credit according to clarity and completeness."
+      }
+    ],
+    "notes": [
+      "Count duplicate conclusions once, even when visualized differently.",
+      "Review valid unlisted findings on their evidence and relevance; they are not automatically false positives.",
+      "The key is not exhaustive. These proposed descriptors require instructor review before actual grading."
+    ]
+  },
+  "decisions": [
+    {
+      "topic": "Example parameters and rubric",
+      "value": "Proposed by the implementing Agent for an engineering walkthrough, not supplied by a study participant.",
+      "source": "Engineering design",
+      "status": "proposed"
+    }
+  ],
+  "review": {
+    "design_status": "pending",
+    "evidence": "Development example; no final instructor acceptance is claimed."
+  }
+}

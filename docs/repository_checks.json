@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-08",
+  "package_version": "0.1.1",
+  "behavioral_tests": {
+    "passed": 18,
+    "failed": 0
+  },
+  "skill_format_validator": "PASS",
+  "unchanged_helper_references_and_examples": "PASS",
+  "four_example_specifications": "PASS",
+  "hotel_build_after_relocation": "PASS",
+  "hotel_package_integrity": "PASS",
+  "zip_integrity_and_source_match": "PASS",
+  "deterministic_zip_rebuild": "PASS",
+  "host_agent_installation_trials": "NOT_RUN",
+  "researcher_trial": "PENDING",
+  "note": "These are package and helper checks, not an independent conversational Agent evaluation."
+}

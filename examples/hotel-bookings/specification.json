@@ -1,0 +1,317 @@
+{
+  "version": "0.1-proposed",
+  "case_id": "hotel-bookings",
+  "title": "Hotel Booking Decisions",
+  "domain": "Hospitality reservation analytics",
+  "record_unit": "One reservation, including reservations later cancelled",
+  "business_context": "A fictional hotel group wants to understand cancellations and quoted room rates. Explore reservations to identify operationally useful patterns, then explain what management can and cannot conclude.",
+  "learner_profile": "Business-school introductory analytics students with limited programming experience.",
+  "ai_policy": "AI tools are allowed throughout. You remain responsible for your data handling, evidence, and conclusions.",
+  "learning_objectives": [
+    {
+      "id": "FRAME",
+      "description": "Frame useful business questions and explain the comparisons selected."
+    },
+    {
+      "id": "VERIFY",
+      "description": "Guide AI exploration and verify the calculations supporting a finding."
+    },
+    {
+      "id": "INTERPRET",
+      "description": "Communicate evidence-based recommendations and distinguish observations from causal hypotheses."
+    }
+  ],
+  "row_count": 4000,
+  "columns": [
+    {
+      "name": "BookingID",
+      "type": "string",
+      "description": "Unique reservation identifier",
+      "unit": "category",
+      "unique": true
+    },
+    {
+      "name": "PropertyType",
+      "type": "string",
+      "description": "Property category",
+      "unit": "category",
+      "categories": [
+        "City",
+        "Resort"
+      ]
+    },
+    {
+      "name": "BookingChannel",
+      "type": "string",
+      "description": "Reservation channel",
+      "unit": "category",
+      "categories": [
+        "Direct",
+        "OTA"
+      ]
+    },
+    {
+      "name": "LeadDays",
+      "type": "integer",
+      "description": "Days between reservation and scheduled arrival",
+      "unit": "days",
+      "min": 0,
+      "max": 180
+    },
+    {
+      "name": "ArrivalDate",
+      "type": "date",
+      "description": "Scheduled arrival date",
+      "unit": "calendar date",
+      "min": "2025-01-01",
+      "max": "2025-12-31"
+    },
+    {
+      "name": "QuotedRate",
+      "type": "number",
+      "description": "Quoted nightly room rate, including cancelled reservations",
+      "unit": "USD per night",
+      "min": 20
+    },
+    {
+      "name": "Cancelled",
+      "type": "boolean",
+      "description": "Whether the reservation was cancelled",
+      "unit": "boolean"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "HOTEL1",
+      "title": "Long-lead OTA cancellations",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "Which reservations merit closer cancellation monitoring?",
+      "generation_rule": "Raise cancellation probability for OTA reservations booked more than 60 days ahead.",
+      "interaction_policy": "Short-lead OTA and Direct share the baseline; do not generalize the OTA interaction to every booking.",
+      "interpretation_limits": "This scenario does not identify the causal effect of changing booking terms.",
+      "credit": "major",
+      "check_ids": [
+        "LEAD-CANCEL"
+      ]
+    },
+    {
+      "id": "HOTEL2",
+      "title": "Resort summer quoted rates",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "How does the Resort quoted-rate mix vary by season?",
+      "generation_rule": "Add a summer premium to Resort rates.",
+      "interaction_policy": "Summer and City weekday premiums apply to different property types.",
+      "interpretation_limits": "Quoted rates are not realized revenue, occupancy, or willingness-to-pay estimates.",
+      "credit": "major",
+      "check_ids": [
+        "RESORT-SUMMER"
+      ]
+    },
+    {
+      "id": "HOTEL3",
+      "title": "City weekday quoted rates",
+      "objective_ids": [
+        "FRAME",
+        "VERIFY",
+        "INTERPRET"
+      ],
+      "business_question": "How do City quoted rates differ across the week?",
+      "generation_rule": "Add a City weekday premium.",
+      "interaction_policy": "Check within City so the Resort seasonal pattern does not redefine the comparator.",
+      "interpretation_limits": "The rates do not establish a causal response to price changes.",
+      "credit": "major",
+      "check_ids": [
+        "CITY-WEEKDAY"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "LEAD-CANCEL",
+      "description": "Cancellation-share difference: OTA lead time above 60 days minus at most 60 days",
+      "metric": "share_difference",
+      "where": [
+        {
+          "field": "BookingChannel",
+          "op": "eq",
+          "value": "OTA"
+        },
+        {
+          "field": "LeadDays",
+          "op": "gt",
+          "value": 60
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 0.18
+      },
+      "compare_where": [
+        {
+          "field": "BookingChannel",
+          "op": "eq",
+          "value": "OTA"
+        },
+        {
+          "field": "LeadDays",
+          "op": "le",
+          "value": 60
+        }
+      ],
+      "min_compare_n": 100,
+      "event": [
+        {
+          "field": "Cancelled",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "RESORT-SUMMER",
+      "description": "Mean quoted rate difference in USD: Resort June\u2013August minus other months",
+      "metric": "mean_difference",
+      "where": [
+        {
+          "field": "PropertyType",
+          "op": "eq",
+          "value": "Resort"
+        },
+        {
+          "field": "ArrivalDate",
+          "op": "in",
+          "value": [
+            6,
+            7,
+            8
+          ],
+          "part": "month"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 45
+      },
+      "compare_where": [
+        {
+          "field": "PropertyType",
+          "op": "eq",
+          "value": "Resort"
+        },
+        {
+          "field": "ArrivalDate",
+          "op": "not_in",
+          "value": [
+            6,
+            7,
+            8
+          ],
+          "part": "month"
+        }
+      ],
+      "min_compare_n": 100,
+      "field": "QuotedRate"
+    },
+    {
+      "id": "CITY-WEEKDAY",
+      "description": "Mean quoted rate difference in USD: City weekdays minus weekends",
+      "metric": "mean_difference",
+      "where": [
+        {
+          "field": "PropertyType",
+          "op": "eq",
+          "value": "City"
+        },
+        {
+          "field": "ArrivalDate",
+          "op": "le",
+          "value": 4,
+          "part": "weekday"
+        }
+      ],
+      "min_n": 100,
+      "acceptance": {
+        "op": "ge",
+        "value": 15
+      },
+      "compare_where": [
+        {
+          "field": "PropertyType",
+          "op": "eq",
+          "value": "City"
+        },
+        {
+          "field": "ArrivalDate",
+          "op": "ge",
+          "value": 5,
+          "part": "weekday"
+        }
+      ],
+      "min_compare_n": 100,
+      "field": "QuotedRate"
+    }
+  ],
+  "parameters": {
+    "ota_long_cancel": 0.43,
+    "other_cancel": 0.12,
+    "base_rate": 110,
+    "resort_summer_premium": 65,
+    "city_weekday_premium": 25,
+    "rate_sd": 8
+  },
+  "assignment": {
+    "requirements": [
+      "Use at least three visualizations to support distinct findings about reservations and rates.",
+      "Explain populations, denominators, and relevant exceptions.",
+      "Conclude with a concise operational recommendation and at least one limitation."
+    ]
+  },
+  "rubric": {
+    "complete": true,
+    "total_points": 100,
+    "criteria": [
+      {
+        "name": "Analytical evidence",
+        "points": 60.0,
+        "description": "Full credit requires the case's major relationships, correct comparisons and denominators, and reproducible evidence. Award proportional credit for independently supported partial findings; unsupported claims earn no discovery credit."
+      },
+      {
+        "name": "Business interpretation",
+        "points": 25.0,
+        "description": "Recommendations follow the evidence, acknowledge unmeasured explanations, and explain business relevance. Reduce credit for unsupported mechanisms or irrelevant recommendations."
+      },
+      {
+        "name": "Communication",
+        "points": 15.0,
+        "description": "Charts are appropriate, clearly labeled, and accompanied by concise interpretations that meet the assignment requirements. Award partial credit according to clarity and completeness."
+      }
+    ],
+    "notes": [
+      "Count duplicate conclusions once, even when visualized differently.",
+      "Review valid unlisted findings on their evidence and relevance; they are not automatically false positives.",
+      "The key is not exhaustive. These proposed descriptors require instructor review before actual grading."
+    ]
+  },
+  "decisions": [
+    {
+      "topic": "Example parameters and rubric",
+      "value": "Proposed by the implementing Agent for an engineering walkthrough, not supplied by a study participant.",
+      "source": "Engineering design",
+      "status": "proposed"
+    }
+  ],
+  "review": {
+    "design_status": "pending",
+    "evidence": "Development example; no final instructor acceptance is claimed."
+  }
+}
