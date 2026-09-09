@@ -4,6 +4,39 @@ Skill name: `datacanvas-edu`. The installable directory is [skills/datacanvas-ed
 
 These setup routes follow the official documentation reviewed on 2026-09-08. The DataCanvas EDU package has not yet completed installation and conversational execution trials on every host. Record your tool, version or surface, and observed outcome when testing. Account availability and organization settings can affect the interfaces below.
 
+## GitHub marketplace import (Codex/ChatGPT desktop)
+
+Use this route in the desktop plugin interface that offers importing a marketplace from GitHub. It addresses the error `marketplace root does not contain a supported manifest`.
+
+1. Open the plugin marketplace import control you used previously.
+2. Enter the repository URL: `https://github.com/BANG23333/datacanvas-edu`.
+3. Add the marketplace, then select **DataCanvas EDU** and install it.
+4. Start a new conversation, select the installed Skill, and provide your teaching brief.
+
+Use the repository URL, not a `blob/main` file URL or a ZIP URL. Adding a marketplace makes its plugins available; installing the plugin is the next step. If a previous failed attempt remains in the interface, retry it against the updated repository. This route applies to surfaces with GitHub marketplace import; other ChatGPT Skill upload interfaces are described below.
+
+The repository contains:
+
+```text
+.agents/plugins/marketplace.json
+plugins/datacanvas-edu/.codex-plugin/plugin.json
+plugins/datacanvas-edu/skills/datacanvas-edu/SKILL.md
+plugins/datacanvas-edu/skills/datacanvas-edu/agents/
+plugins/datacanvas-edu/skills/datacanvas-edu/references/
+plugins/datacanvas-edu/skills/datacanvas-edu/scripts/
+```
+
+The marketplace points to `./plugins/datacanvas-edu` relative to the repository root. The plugin includes the complete Skill and requires no separate connector or MCP server. Its supporting Python files are included; host permission to execute code is still required.
+
+For Codex CLI users, register the repository and then install the plugin:
+
+```sh
+codex plugin marketplace add https://github.com/BANG23333/datacanvas-edu
+codex plugin add datacanvas-edu@datacanvas-edu
+```
+
+The marketplace identifier and plugin identifier are both `datacanvas-edu`. Start a new conversation after installation. Package structure validation is distinct from testing a complete instructor workflow; see [validation status](VALIDATION.md).
+
 ## Claude app
 
 1. Download [datacanvas-edu-v0.1.1.zip](../dist/datacanvas-edu-v0.1.1.zip) from this repository. On its GitHub file page, use the download control.
@@ -64,4 +97,4 @@ References: [Skills in ChatGPT](https://help.openai.com/en/articles/20001066), [
 
 The numerical helper uses Python 3.10+ and its standard library. Reference charts use Matplotlib; WindowDash also needs NumPy and pandas. The Agent may install appropriate dependencies within the host's permitted environment. No separate API key or paid API service is required by the helper itself; your chosen Agent tool has its own access requirements.
 
-Folder copies and downloaded ZIPs are version snapshots. Updating this GitHub repository does not automatically replace a manually installed copy. Keep the prior version for comparison and use the host's update or replacement process after reviewing the changelog. Plugin packaging and easier update distribution remain planned work.
+Folder copies and downloaded ZIPs are version snapshots. Updating this GitHub repository does not automatically replace a manually installed copy. Keep the prior version for comparison and use the host's update or replacement process after reviewing the changelog. For marketplace installations, use the host's marketplace refresh/update and plugin update controls; do not assume a repository commit has updated an already installed plugin.

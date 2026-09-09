@@ -1,0 +1,20 @@
+{
+  "name": "datacanvas-edu",
+  "interface": {
+    "displayName": "Datacanvas Edu"
+  },
+  "plugins": [
+    {
+      "name": "datacanvas-edu",
+      "source": {
+        "source": "local",
+        "path": "./plugins/datacanvas-edu"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

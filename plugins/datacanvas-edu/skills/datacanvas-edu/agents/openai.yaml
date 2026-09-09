@@ -1,0 +1,4 @@
+interface:
+  display_name: "DataCanvas EDU"
+  short_description: "Create teaching datasets across business domains"
+  default_prompt: "Use $datacanvas-edu to turn my teaching goals into a synthetic business dataset, checked reference insights, and an assignment rubric."

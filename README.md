@@ -23,6 +23,8 @@ Example starting request:
 
 Use [this feedback guide](docs/TRY_AND_REPORT.md) to record your trial. For Claude's Skill upload interface, the download is [datacanvas-edu-v0.1.1.zip](dist/datacanvas-edu-v0.1.1.zip). It contains the Skill folder; the repository's examples and documentation remain separate.
 
+**Importing a GitHub plugin marketplace:** Add `https://github.com/BANG23333/datacanvas-edu` in your Codex/ChatGPT desktop plugin interface, then install **DataCanvas EDU** from that marketplace. This repository includes the marketplace manifest and a self-contained plugin. See the [GitHub import instructions](docs/INSTALLATION.md#github-marketplace-import-codexchatgpt-desktop) for the interface that reported a missing manifest.
+
 ## How it works
 
 | Phase | Agent work | Instructor decision |
@@ -55,10 +57,12 @@ These are editable development cases, not the limits of the Skill. The Agent can
 
 ```text
 skills/datacanvas-edu/   Installable Skill: SKILL.md, scripts, and references
+.agents/plugins/        Manifest for importing this GitHub repository as a marketplace
+plugins/datacanvas-edu/  Plugin manifest and generated copy of the complete Skill
 examples/              Four case configurations and teaching briefs
 docs/                  Installation, trial guidance, and evidence boundaries
 tests/                 Behavioral checks for the shared helper
-scripts/               Rebuild the downloadable Skill archive
+scripts/               Rebuild the Skill archive and synchronize the plugin bundle
 dist/                  Versioned Skill ZIP and its file manifest
 ```
 
@@ -81,7 +85,11 @@ Run the behavioral checks or rebuild the archive:
 ```sh
 python -m unittest discover -s tests -v
 python scripts/package_skill.py
+python scripts/package_plugin.py
+python scripts/package_plugin.py --check
 ```
+
+Edit the canonical Skill under `skills/datacanvas-edu/`, then rebuild both distribution formats. The bundled copy under `plugins/` is generated; the check above catches missing files and stale copies.
 
 ## Evidence and development plan
 
@@ -93,4 +101,4 @@ Next steps are the researcher's own Skill trial, feedback-driven revisions, plat
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for useful feedback and example contributions, and [CHANGELOG.md](CHANGELOG.md) for version history. All repository artifacts and code use English; instructor conversations may use the instructor's preferred language.
 
-The repository became public on 2026-09-08. A license and formal citation will be added when those decisions are finalized. The current source and v0.1.1 Skill ZIP are available in this repository; no paper, formal GitHub Release, or marketplace listing is claimed yet.
+The repository became public on 2026-09-08. A license and formal citation will be added when those decisions are finalized. The source, v0.1.1 Skill ZIP, and repository-hosted plugin marketplace are available here. This does not imply a paper, formal GitHub Release, or listing in an official curated plugin catalog.

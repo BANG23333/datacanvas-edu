@@ -1,5 +1,13 @@
 # Changelog
 
+## GitHub marketplace import fix — 2026-09-08
+
+- Add `.agents/plugins/marketplace.json` so the GitHub repository can be discovered by the plugin marketplace importer.
+- Add a Codex plugin manifest and a self-contained copy of the v0.1.1 Skill under `plugins/datacanvas-edu/`.
+- Add a reproducible plugin bundling command with a check for missing or stale Skill files.
+- Document marketplace import separately from standalone Skill folder installation and Claude Skill ZIP upload.
+- Preserve the v0.1.1 standalone Skill, ZIP, and numerical behavior. The plugin is a new distribution wrapper for that same Skill.
+
 ## Repository publication — 2026-09-08
 
 - Make the repository public at the researcher's request.

@@ -10,6 +10,12 @@ The existing 18 behavioral checks cover known measurements, empty and sparse gro
 
 The v0.1.1 naming and packaging revision preserves the original generation and measurement code. Verification of the relocated package is recorded in [repository checks](repository_checks.json).
 
+## Plugin packaging checks
+
+The GitHub import fix adds the repository marketplace manifest and plugin manifest that were missing from the original standalone Skill distribution. The plugin-creator validator passed on the new plugin, and the bundle check confirmed that all five bundled Skill files match the canonical standalone Skill byte for byte. The standalone v0.1.1 ZIP is unchanged.
+
+These format and completeness checks do not establish a completed instructor conversation or cross-platform runtime compatibility. Installation observations will be recorded separately.
+
 ## Boundaries
 
 - The three new domains are development examples with Agent-proposed defaults, not recorded instructor interviews or an independent domain sample.
