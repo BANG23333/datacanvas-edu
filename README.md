@@ -1,3 +1,5 @@
+![DataCanvas EDU framework showing Plan, Create, Verify and Test Analysis, and Evaluate in an instructor-guided cycle](docs/assets/datacanvas-edu-framework.png)
+
 # DataCanvas EDU
 
 *An AI Agent Skill for Synthetic Data Generation in Analytics Education*

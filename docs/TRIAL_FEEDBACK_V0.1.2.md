@@ -22,7 +22,7 @@ The instructor still controls domain-specific patterns, counts, difficulty, poin
 
 ## Reference materials reviewed
 
-The review used the supplied conversation, the generated assignment/rubric/specification, and retained text snapshots of the WindowDash assignment and [instructor solution and rubric](https://docs.google.com/document/d/1DVBhVaP4wfqC7_gkZW9huuqRfCaoity1/edit). The [assignment description](https://drive.google.com/file/d/17QRK85njL8GuloTeh9lkj9jChZcvUqDf/view?usp=sharing) and assignment requirements supplied by the instructor establish the short report format. These links identify the teaching reference; the distributed Skill includes a generalized guide and does not require access to the private source documents.
+The review used the supplied conversation, the generated assignment/rubric/specification, and retained text snapshots of the WindowDash assignment and instructor solution and rubric. The assignment description and assignment requirements supplied by the instructor establish the short report format. The teaching references are retained privately; the distributed Skill includes a generalized guide and does not require access to those source documents.
 
 The original rubric contains 50 total points, 30 discovery points, major-pattern tiers, minor findings, and deduction examples, but leaves several scoring rules unresolved. The revised Skill requires a proposed reconciliation and instructor approval, rather than silently inventing a scoring system or copying incomplete arithmetic.
 
