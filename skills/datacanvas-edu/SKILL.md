@@ -1,6 +1,6 @@
 ---
 name: datacanvas-edu
-description: Design and generate synthetic teaching datasets with instructor-defined business patterns, verified reference analyses, assignments, and rubrics. Use for analytics education across business domains; this is an instructor authoring workflow, not a student assignment solver.
+description: Guide instructors to define and approve hidden business patterns, then generate synthetic teaching datasets, checked reference solutions, and a matching assignment and rubric. Use for analytics education across business domains; this is an instructor authoring workflow, not a student assignment solver.
 ---
 
 # DataCanvas EDU
@@ -9,15 +9,27 @@ Turn a teaching brief into a reviewable, reproducible learning environment throu
 
 The workflow is domain-independent. Never assume an industry, field name, row count, number of patterns, chart count, or grading scale. Examples are optional starting points. The Agent writes case-specific generation and measurement code; the helper does not restrict the instructor to a menu of datasets.
 
+## Instructor control
+
+**Ask → propose → wait for the instructor's ideas or approval → act within that approval.** Apply this to hidden patterns, assignment scope, grading, substantive design changes, and final acceptance. Giving a proposal is not receiving approval. A reply to a question about audience, tools, or analytical methods does not approve other proposed details.
+
+While a teaching decision is pending, present a concrete proposal and a focused question, then end the response and wait. Do not generate data, write or execute case-generation code, or produce completed assignments and solutions while waiting. Planning notes and review drafts are appropriate. Labeling an executed design "proposed" or "pending review" does not satisfy this requirement. Do not use the former "authorized prototype with defaults" shortcut.
+
+Reuse decisions the instructor has already confirmed; do not repeatedly seek approval for the same choice. Once the concrete design is approved, implement and verify it without asking about every routine coding operation. Return to the instructor before changing the intended discoveries, workload, deliverables, or grading. A numerical pass never substitutes for instructor acceptance.
+
 ## Plan
 
-Reuse information already provided. Start from the business context, learner level, and analytical decisions students should practice. Ask only a few consequential questions at a time. Do not require instructors to supply formulas or complete a technical form.
+Reuse information already provided. First establish the business context, learner level, and tools or course constraints. Ask only a few consequential questions at a time. Do not require instructors to supply formulas or complete a technical form.
 
-Propose a concise design: learning objectives, one-record meaning, management questions, intended discoveries, difficulty, and deliverables. Explain defaults and mark them as proposals. If the instructor has no domain preference, offer a few contrasting examples. For unfamiliar domains, expose uncertain business assumptions rather than inventing industry rules.
+**Next, explicitly ask what hidden patterns the instructor wants students to discover.** Offer a small set of concrete candidate patterns suited to the context and invite the instructor to keep, modify, reject, or add to them. Describe each proposed relationship, the groups or conditions involved, its business relevance, and intended strength or subtlety in plain language. If the instructor has already supplied patterns, summarize them and ask only about unresolved choices. Wait for their response before moving to the complete design. An instructor who has no pattern ideas should receive proposals to review, not an automatically generated dataset.
+
+After the patterns are agreed, propose a concise complete design: objectives, observation unit, approximate size and fields, approved discoveries and difficulty, one assignment, and the grading plan. Read [assignment and solution design](references/assignment-and-rubric.md) before preparing these review drafts. Show the instructor the assignment requirements and a concrete scoring outline, including point totals, major/minor discovery treatment, and deductions. Ask for approval or edits before Create. Material changes to the patterns require renewed review of affected choices.
+
+**Default to one assignment with one set of student requirements and one matching instructor solution/rubric.** Different tools are submission routes for the same assignment. Do not invent introductory/advanced versions, stages, regression tasks, notebooks, extra memos, or optional extensions. Add methods or deliverables only when requested or accepted in the reviewed design. If the instructor says "both" to exploration versus regression, propose including both in one assignment and confirm the scope; that reply does not request two separate assignments or approve hidden patterns and grading. Multiple assignments require an explicit request for multiple assignments.
 
 Connect objectives to student actions: framing questions, guiding exploration, checking AI output, interpreting relationships, and communicating decisions. A chart alone cannot establish the reasoning process. Preserve existing assignment and rubric rules unless revision is requested.
 
-Read [the specification contract](references/specification.md) when translating the design into executable requirements. Prepare the specification yourself, including populations, comparators, measures, support, thresholds, interactions, and interpretation limits. Review substantive design choices with the instructor; reuse decisions already authorized. Routine implementation choices need not become approval questions. An authorized prototype may use proposed defaults while clearly retaining pending instructional acceptance.
+Read [the specification contract](references/specification.md) when translating the approved design into executable requirements. Prepare the specification yourself, including populations, comparators, measures, support, thresholds, interactions, and interpretation limits. Record which patterns, assignment, and rubric the instructor approved, with the actual reply and its scope in `decisions` and `review`. Never fabricate approval. Before Create, verify that no substantive design decision is still pending. The helper's ability to build a pending specification is for technical development, not permission to bypass the instructor interview.
 
 ## Create
 
@@ -25,7 +37,7 @@ Place each case in its own directory with `specification.json` and `generate.py`
 
 Use a custom measurement when built-in metrics do not express the requested pattern. Read [verification and execution](references/verification.md) for interfaces and commands. Examples must remain case configurations, not mandatory fields or logic in the core helper.
 
-Keep earlier artifacts and attempts. Generate into a new run directory. Do not silently lower thresholds, remove failed patterns, or change seeds merely to hide failure. Use the agreed attempt budget; absent a preference, propose up to three candidate cycles including the first. Correct implementation errors within scope, and return material design conflicts to Plan with concrete alternatives.
+Keep earlier artifacts and attempts. Generate into a new run directory. Do not silently lower thresholds, remove failed patterns, or change seeds merely to hide failure. Include a bounded attempt budget in the design proposal; up to three candidate cycles including the first is an optional starting proposal. Correct implementation errors within scope, and return material design conflicts to Plan with concrete alternatives.
 
 ## Verify / Test Analysis
 
@@ -39,7 +51,7 @@ A discoverability pilot uses only the student package in a fresh solver context.
 
 ## Evaluate
 
-Deliver student data, dictionary, and assignment; instructor specification, key, numerical evidence, reference charts, rubric, and validation report; and reproducibility code, parameters, seeds, environment, fingerprints, and revisions.
+Assemble the approved single assignment and its teaching package: student data, dictionary, and assignment; instructor specification, pattern-by-pattern reference solution with charts and explanations, rubric, and validation report; and reproducibility code, parameters, seeds, environment, fingerprints, and revisions. Follow [assignment and solution design](references/assignment-and-rubric.md). A generic list of criteria or a numerical validation table alone is not the instructor solution and rubric.
 
 Review plausibility, objective coverage, difficulty, answers, and rubric completeness with the instructor. Record the actual decision and scope. Never invent acceptance, reviewer feedback, or student results. If acceptance is already explicit, record it without asking again. Keep remaining decisions visible in the package. Publishing or submitting materials is a separate action governed by the user's request.
 

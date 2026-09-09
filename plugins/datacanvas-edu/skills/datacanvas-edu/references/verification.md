@@ -10,6 +10,8 @@ Custom metrics implement `measure(name, target_rows, comparator_rows, check)` an
 
 ## Commands
 
+In an instructor session, run `build` only after the instructor has approved the hidden patterns, assignment requirements, and rubric. `check-spec` and review drafts can help prepare a proposal, but passing checks cannot authorize generation. The CLI remains a developer utility and does not verify that a human conversation or approval occurred.
+
 Resolve and quote paths for the current environment:
 
 ```text
@@ -30,5 +32,7 @@ Check raw schema before calculating patterns. Malformed data, missing checks, un
 Run the same case twice with the same seed in different directories and compare dataset bytes. Declare fresh seeds before testing, retain every result, and explain failures. Manifests and paths differ naturally across runs; compare the data and recorded inputs rather than expecting all package files to match byte-for-byte.
 
 The helper creates student data/dictionary/assignment; instructor key/rubric/checks/charts/pending acceptance; and reproducibility code/seed/environment/manifest. `verify-package` checks fingerprints and extra student files, not whether prose leaks answers. Review student-facing text before sharing. A discoverability solver should receive only the student directory in a fresh context.
+
+Expand the helper's key and rubric into the approved pattern-by-pattern instructor solution described in [assignment and rubric design](assignment-and-rubric.md). Each major finding needs a usable reference chart, measured evidence, interpretation, and scoring guidance; a PASS table and generic criterion headings do not suffice. Keep approved scope to one assignment and one solution/rubric set unless multiple assignments were explicitly requested.
 
 The helper does not grade students, authenticate human identity, or prove contamination avoidance, ease of use, or educational effectiveness. Design acceptance supplied in a specification is an assertion that must have supporting conversational evidence. Record final instructor decisions only after they occur, with scope and evidence. Put accepted revisions into a new case/package version instead of silently changing frozen artifacts. Building a package does not publish or submit it.

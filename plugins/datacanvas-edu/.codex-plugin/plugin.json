@@ -1,6 +1,6 @@
 {
   "name": "datacanvas-edu",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An AI Agent Skill for Synthetic Data Generation in Analytics Education",
   "author": {
     "name": "BANG23333",
@@ -10,11 +10,11 @@
   "interface": {
     "displayName": "DataCanvas EDU",
     "shortDescription": "Create synthetic datasets for analytics education.",
-    "longDescription": "Turn teaching goals into synthetic business datasets with instructor-defined patterns, verified reference analyses, assignments, and rubrics. The agent guides instructors through Plan, Create, Verify, and Evaluate across business domains, with instructor review of design and acceptance.",
+    "longDescription": "Define hidden business patterns with the instructor, propose one assignment and its discovery-based rubric, and wait for approval before generating synthetic data. Prepare checked reference charts, explanations, and assessment materials through Plan, Create, Verify, and Evaluate across business domains.",
     "developerName": "BANG23333",
     "category": "Productivity",
     "capabilities": [],
-    "defaultPrompt": "Use DataCanvas EDU to create a synthetic dataset for my business analytics class. Help me define a scenario and intended discoveries, then prepare the dataset, checked reference analyses, assignment, and rubric. Ask me for the teaching decisions you need.",
+    "defaultPrompt": "Use DataCanvas EDU to help me design a synthetic teaching dataset. Ask which hidden patterns I want, propose options, and wait for my approval of the patterns, one assignment, and its rubric before generating anything.",
     "websiteURL": "https://github.com/BANG23333/datacanvas-edu"
   },
   "homepage": "https://github.com/BANG23333/datacanvas-edu",

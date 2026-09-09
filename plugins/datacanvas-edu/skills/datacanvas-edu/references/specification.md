@@ -2,6 +2,8 @@
 
 The Agent writes JSON; the instructor reviews business and teaching choices. The v0.1 helper supports Python generation and one CSV table. Other backends or multiple tables require additional implementation and must not be described as tested helper features.
 
+Before generation in an instructor conversation, the hidden patterns, single-assignment scope, and concrete rubric must be reviewed and approved. Keep actual approval evidence and scope in `decisions`; mark `review.design_status` accepted only when supported. Pending specifications may be written as review drafts, but the conversational Skill must wait rather than build them. The technical helper does not authenticate or enforce conversational approval. See [assignment and rubric design](assignment-and-rubric.md) for the student brief, reference solution, and discovery-based scoring structure.
+
 ## Case fields
 
 | Field | Contract |
@@ -13,7 +15,7 @@ The Agent writes JSON; the instructor reviews business and teaching choices. The
 | `columns` | Schema records described below |
 | `patterns` | Discovery records linked to objectives and checks |
 | `checks` | Data measurements with explicit criteria |
-| `assignment` | `{requirements: [English requirements]}` |
+| `assignment` | `{requirements: [English requirements]}` for one assignment unless multiple assignments were explicitly requested |
 | `rubric` | `{complete: bool, total_points: number, criteria: [{name, points, description}], notes: [text]}` |
 | `parameters` | Object read by the generator; no prescribed domain-specific keys |
 | `decisions` | List of `{topic, value, source, status}`; distinguish instructor instructions, supplied materials, and Agent proposals |

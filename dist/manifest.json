@@ -1,13 +1,14 @@
 {
-  "version": "0.1.1",
-  "zip": "datacanvas-edu-v0.1.1.zip",
-  "sha256": "add738bb4cceb5fad3f414837479896eac8ec4960de7d16cfbdc9771acabb229",
-  "file_count": 5,
+  "version": "0.1.2",
+  "zip": "datacanvas-edu-v0.1.2.zip",
+  "sha256": "2edbf648fc9691d65e8728a95996f36a62ac8d9de022189d38edf0421eccb9a5",
+  "file_count": 6,
   "files": {
-    "datacanvas-edu/SKILL.md": "8a7b0f94c05e18b31ae517cd264705314960498c1a9877d2d51e5eba83e0a612",
-    "datacanvas-edu/agents/openai.yaml": "2e9f0a060c239a5e1fd13e3ec39267be56b422bcb51b337b96be354ff7bb8df6",
-    "datacanvas-edu/references/specification.md": "17962da94279078a2757ae823352a8fc7949caf85aada64fd36db1ca0b45ea34",
-    "datacanvas-edu/references/verification.md": "081f6c879bcc7f5602c07159984866ff90a9ff1bf3058d6b94145e2dcfcd5ec9",
+    "datacanvas-edu/SKILL.md": "b5ef58baf84d1930a5d945f50ee58414ee966c05a2a19e53339b04af641010d6",
+    "datacanvas-edu/agents/openai.yaml": "284392045df2433024ef2b3c9b6109b8da8a68b46e9e881115bfbb1c20c9605e",
+    "datacanvas-edu/references/assignment-and-rubric.md": "4e20676dd221d264c44021f5cd5ff39f6210550cba853f23abee6ff1645d80ab",
+    "datacanvas-edu/references/specification.md": "d20b943c85df1525cf7a6acc649b121364c275df1feeba5ce1ef3e3cc2514f00",
+    "datacanvas-edu/references/verification.md": "d3f072d0ef7e8d8c40db3d040ac0d130676d9bfdf5096a81a9be0ba4826510f1",
     "datacanvas-edu/scripts/dataset_workflow.py": "59e5f7abdcba76cc1665bbee6ca41f076d50afec7d007e0a0367ee9058ba1b5d"
   }
 }

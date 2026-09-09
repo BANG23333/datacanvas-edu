@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.2 — 2026-09-08 — Instructor control and assessment design
+
+- Ask which hidden patterns the instructor wants, offer concrete proposals, and wait for their choices before preparing the complete design.
+- Require approval of the patterns, assignment, and rubric before case generation; remove the shortcut that allowed executing a proposed design while acceptance remained pending.
+- Default to one assignment and one matching solution/rubric. A request for both exploration and regression does not create two assignments or approve unrelated details.
+- Add WindowDash-inspired guidance for concise student requirements and pattern-by-pattern reference charts, explanations, discovery credit, minor findings, duplicates, and negative examples.
+- Preserve the numerical helper and original trial outputs; package the revised instructions as a new Skill ZIP and plugin version while retaining v0.1.1.
+- Document the first formative instructor feedback and the fresh-conversation retest plan.
+
 ## GitHub marketplace import fix — 2026-09-08
 
 - Add `.agents/plugins/marketplace.json` so the GitHub repository can be discovered by the plugin marketplace importer.

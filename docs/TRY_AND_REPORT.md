@@ -1,10 +1,10 @@
 # Researcher Trial and Feedback
 
-The researcher will personally test DataCanvas EDU and provide feedback for the next functional revision. The repository is now public. The current GitHub package is v0.1.1: the DataCanvas EDU naming and distribution revision of the original v0.1.0 prototype. Core numerical behavior is unchanged. The original local prototype remains available for comparison.
+The first researcher trial exposed premature generation and expansion into two assignments. Version 0.1.2 strengthens instructor control and adds assignment/solution/rubric guidance in response. See [trial feedback and revision](TRIAL_FEEDBACK_V0.1.2.md). Core numerical behavior is unchanged, and prior artifacts remain available for comparison.
 
 Start with a fresh conversation and a real teaching brief. Any business domain is welcome. Let the Agent conduct the interview and prepare the technical specification; manually running a supplied example tests the helper, not the conversational Skill.
 
-Check whether the Agent asks understandable questions, proposes useful defaults, respects your learning objectives, and gives you meaningful control over the intended patterns and assessment. Review the output package before accepting it. The example specifications retain proposed choices and pending instructional acceptance.
+Check whether the Agent asks what hidden patterns you want, gives useful proposals, and waits for your response. It should next show one assignment and a concrete rubric and wait for approval before generation. A choice such as "both" for analytical methods must not become two assignments or blanket approval. Review the pattern-by-pattern solution, charts, explanations, discovery credit and deductions before final acceptance.
 
 Feedback can be informal. Useful details include:
 
@@ -15,4 +15,4 @@ Feedback can be informal. Useful details include:
 - Requested changes and the Agent's response.
 - Any conversation record, error message, or small reproducible example you are willing to share.
 
-No teacher trial result has been recorded yet. This formative trial will guide the next revision; it is not a controlled usability or student learning study. After feedback, document actual observations, make targeted changes, verify affected behavior, and prepare a new version.
+The first trial is formative feedback, not a controlled usability or student learning study. A complete instructor trial of v0.1.2 remains necessary. Record actual observations, keep unsuccessful attempts, and distinguish improvements in conversational control from numerical checks or learning outcomes.
