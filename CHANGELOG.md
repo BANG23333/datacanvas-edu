@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3 — 2026-09-09 — Output choices and instructor revision loop
+
+- Preview the data, assignment, instructor solution, rubric, and supporting files before generation; recommend useful formats and wait for the instructor's choice or acceptance.
+- Distinguish teaching-package file formats from student submission requirements. Describe CSV/Markdown helper outputs separately from host-assisted document/spreadsheet exports.
+- Explain the repeated Plan → Create → Verify → Evaluate → Plan cycle during planning and at each unaccepted package handoff.
+- Invite feedback with concrete examples and one easy question; revise agreed parts, preserve earlier versions and settled choices, and avoid regenerating approved data for document-only edits.
+- Keep the numerical helper unchanged and preserve earlier Skill ZIPs. A complete instructor trial of format exports and the revision loop remains necessary.
+
 ## 0.1.2 — 2026-09-08 — Instructor control and assessment design
 
 - Ask which hidden patterns the instructor wants, offer concrete proposals, and wait for their choices before preparing the complete design.

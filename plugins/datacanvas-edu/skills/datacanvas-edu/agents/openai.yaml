@@ -1,4 +1,4 @@
 interface:
   display_name: "DataCanvas EDU"
   short_description: "Create teaching datasets across business domains"
-  default_prompt: "Use $datacanvas-edu to propose hidden patterns, one assignment, and a matching rubric for my teaching goals, and wait for my approval before generating the dataset."
+  default_prompt: "Use $datacanvas-edu to agree on hidden patterns, one assignment, a rubric, and output formats before generation, then help me review and revise the first version."

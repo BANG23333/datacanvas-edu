@@ -2,7 +2,9 @@
 
 The Agent writes JSON; the instructor reviews business and teaching choices. The v0.1 helper supports Python generation and one CSV table. Other backends or multiple tables require additional implementation and must not be described as tested helper features.
 
-Before generation in an instructor conversation, the hidden patterns, single-assignment scope, and concrete rubric must be reviewed and approved. Keep actual approval evidence and scope in `decisions`; mark `review.design_status` accepted only when supported. Pending specifications may be written as review drafts, but the conversational Skill must wait rather than build them. The technical helper does not authenticate or enforce conversational approval. See [assignment and rubric design](assignment-and-rubric.md) for the student brief, reference solution, and discovery-based scoring structure.
+Before generation in an instructor conversation, the hidden patterns, single-assignment scope, concrete rubric, and delivery formats must be reviewed and approved. Keep actual approval evidence and scope in `decisions`; mark `review.design_status` accepted only when supported. Pending specifications may be written as review drafts, but the conversational Skill must wait rather than build them. The technical helper does not authenticate or enforce conversational approval. See [assignment and rubric design](assignment-and-rubric.md) and [output choices and revisions](outputs-and-revisions.md).
+
+Record the chosen formats for data, assignment, reference solution, and rubric in a delivery-formats entry within `decisions`, including whether solution and rubric are combined. This records an agreed delivery plan; it does not add native document-export support to the helper. Keep student submission requirements separately in `assignment.requirements`. On revision, retain earlier specifications and approval evidence, record the requested changes, and reopen only affected decisions. Final acceptance applies to the version actually reviewed.
 
 ## Case fields
 

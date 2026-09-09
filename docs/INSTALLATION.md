@@ -1,6 +1,6 @@
 # Install DataCanvas EDU
 
-Current version: **0.1.2**. Skill name: `datacanvas-edu`. The installable directory is [skills/datacanvas-edu](../skills/datacanvas-edu/). Its `SKILL.md`, scripts, and references belong together.
+Current version: **0.1.3**. Skill name: `datacanvas-edu`. The installable directory is [skills/datacanvas-edu](../skills/datacanvas-edu/). Its `SKILL.md`, scripts, and references belong together.
 
 These setup routes follow the official documentation reviewed on 2026-09-08. The DataCanvas EDU package has not yet completed installation and conversational execution trials on every host. Record your tool, version or surface, and observed outcome when testing. Account availability and organization settings can affect the interfaces below.
 
@@ -39,7 +39,7 @@ The marketplace identifier and plugin identifier are both `datacanvas-edu`. Star
 
 ## Claude app
 
-1. Download [datacanvas-edu-v0.1.2.zip](../dist/datacanvas-edu-v0.1.2.zip) from this repository. On its GitHub file page, use the download control.
+1. Download [datacanvas-edu-v0.1.3.zip](../dist/datacanvas-edu-v0.1.3.zip) from this repository. On its GitHub file page, use the download control.
 2. Enable code execution and file creation in your Claude environment if needed.
 3. Open **Customize > Skills**, choose the option to create a Skill, and select **Upload a skill**.
 4. Upload the ZIP and enable it.
@@ -100,13 +100,13 @@ The numerical helper uses Python 3.10+ and its standard library. Reference chart
 Folder copies and downloaded ZIPs are version snapshots. Updating this GitHub repository does not automatically replace a manually installed copy. Keep the prior version for comparison and use the host's update or replacement process after reviewing the changelog. For marketplace installations, use the host's marketplace refresh/update and plugin update controls; do not assume a repository commit has updated an already installed plugin.
 
 
-## Updating the v0.1.1 marketplace installation
+## Updating an earlier marketplace installation
 
-Version 0.1.2 changes the instructor interview and grading guidance. Refresh the DataCanvas EDU marketplace, update/install its plugin, and start a new conversation. For Codex CLI:
+Version 0.1.3 adds output-format choices and an explicit instructor review-and-revision loop to the earlier approval workflow. Refresh the DataCanvas EDU marketplace, update/install its plugin, and start a new conversation. For Codex CLI:
 
 ```sh
 codex plugin marketplace upgrade datacanvas-edu
 codex plugin add datacanvas-edu@datacanvas-edu
 ```
 
-Confirm the installed plugin reports version `0.1.2`. Updating repository files alone does not replace an old cached Skill in an existing conversation. For Claude Skill uploads or manual folder installations, replace the prior installation using the appropriate host controls and the v0.1.2 package; retain the older ZIP if needed for comparison.
+Confirm the installed plugin reports version `0.1.3`. Updating repository files alone does not replace an old cached Skill in an existing conversation. For Claude Skill uploads or manual folder installations, replace the prior installation using the appropriate host controls and the v0.1.3 package; retain the older ZIP if needed for comparison.

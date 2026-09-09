@@ -9,7 +9,7 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 def main():
     root = Path(__file__).resolve().parents[1]
     skill = root / "skills/datacanvas-edu"
-    version = "0.1.2"
+    version = "0.1.3"
     files = sorted(
         path for path in skill.rglob("*")
         if path.is_file()

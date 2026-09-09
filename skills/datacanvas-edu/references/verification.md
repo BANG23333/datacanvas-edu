@@ -10,7 +10,7 @@ Custom metrics implement `measure(name, target_rows, comparator_rows, check)` an
 
 ## Commands
 
-In an instructor session, run `build` only after the instructor has approved the hidden patterns, assignment requirements, and rubric. `check-spec` and review drafts can help prepare a proposal, but passing checks cannot authorize generation. The CLI remains a developer utility and does not verify that a human conversation or approval occurred.
+In an instructor session, run `build` only after the instructor has approved the hidden patterns, assignment requirements, rubric, and output formats. `check-spec` and review drafts can help prepare a proposal, but passing checks cannot authorize generation. The CLI remains a developer utility and does not verify that a human conversation or approval occurred.
 
 Resolve and quote paths for the current environment:
 
@@ -34,5 +34,7 @@ Run the same case twice with the same seed in different directories and compare 
 The helper creates student data/dictionary/assignment; instructor key/rubric/checks/charts/pending acceptance; and reproducibility code/seed/environment/manifest. `verify-package` checks fingerprints and extra student files, not whether prose leaks answers. Review student-facing text before sharing. A discoverability solver should receive only the student directory in a fresh context.
 
 Expand the helper's key and rubric into the approved pattern-by-pattern instructor solution described in [assignment and rubric design](assignment-and-rubric.md). Each major finding needs a usable reference chart, measured evidence, interpretation, and scoring guidance; a PASS table and generic criterion headings do not suffice. Keep approved scope to one assignment and one solution/rubric set unless multiple assignments were explicitly requested.
+
+Convert the helper's CSV/Markdown outputs to the agreed delivery formats with available host tools, then reopen or render them and check consistency with the validated source. Extra exports require updated integrity records. See [output choices and revisions](outputs-and-revisions.md); the helper does not natively supply every requested export. A package handoff must invite review and explain how to return to Plan. For document-only revisions, preserve the approved data, create a new package version, and verify changed documents and dependent records rather than unnecessarily rerunning generation.
 
 The helper does not grade students, authenticate human identity, or prove contamination avoidance, ease of use, or educational effectiveness. Design acceptance supplied in a specification is an assertion that must have supporting conversational evidence. Record final instructor decisions only after they occur, with scope and evidence. Put accepted revisions into a new case/package version instead of silently changing frozen artifacts. Building a package does not publish or submit it.

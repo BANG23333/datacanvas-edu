@@ -2,6 +2,8 @@
 
 Read this when proposing the assignment and grading plan, and again when assembling the instructor package. Use the instructor's supplied assignment or rubric as the primary reference. The WindowDash example below supplies a preferred discovery-oriented structure; its domain, numbers, and scoring choices are not mandatory for every course.
 
+Use [output choices and revisions](outputs-and-revisions.md) to show what the instructor will receive and agree on file formats before generation. The student report format described below is a separate decision from the format of the assignment, instructor solution, and rubric delivered to the teacher.
+
 ## One concise student assignment
 
 Default to one business case and one assignment. Alternative Colab and agent-tool submission routes belong to the same assignment. Combining approved exploration and regression topics does not create separate assignments, stages, point totals, or solutions unless the instructor explicitly requests that structure.
@@ -53,4 +55,4 @@ The current helper can render additive criterion rows and free-text notes. If th
 
 ## Approval and final review
 
-Before Create, show the proposed assignment and complete scoring policy alongside the agreed pattern list. Wait for approval or edits. After the data and reference solution exist, show measured patterns, representative charts, the matching rubric, and any remaining limitations for final instructor acceptance. If the measurements require a material change to a pattern or grading rule, return that change for review first. Preserve the instructor's actual decisions and the scope of each approval.
+Before Create, show the proposed assignment and complete scoring policy alongside the agreed pattern list and output-format preview. Wait for approval or edits. After the data and reference solution exist, show measured patterns, representative charts, the matching rubric, and any remaining limitations. Explicitly invite feedback and explain that patterns, assignment, rubric, and formats can be revised by returning to Plan. Ask what to keep or change, or whether the version is ready for use. If the measurements require a material change to a pattern or grading rule, return that change for review first. Preserve the instructor's actual decisions and the scope and version of each approval.

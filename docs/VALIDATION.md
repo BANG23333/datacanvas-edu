@@ -30,6 +30,16 @@ The GitHub marketplace was refreshed and v0.1.2 installed through the same Codex
 
 The approval requirements are Skill instructions. The direct Python developer utility does not authenticate or enforce human approval. A fresh instructor conversation must verify that the host follows these instructions through generation, reference-solution review, and final acceptance. Cross-platform use and educational outcomes remain unestablished.
 
+## v0.1.3 output choices and instructor revision loop
+
+Follow-up feedback requested a clear pre-generation explanation of the outputs, instructor choice of file formats, and a visible invitation to repeat the planning/revision cycle after inspecting results. Version 0.1.3 adds that conversation to the Skill, its reference guides, and the public README. The numerical helper is unchanged; DOCX/PDF/XLSX exports remain work for the host's available tools, not newly implemented helper capabilities.
+
+The Skill and plugin validators passed. All seven Skill files match between the canonical source, plugin bundle, and v0.1.3 ZIP; version identifiers agree and relative reference links resolve. Earlier ZIPs and the numerical helper remain unchanged.
+
+An independent agent produced three isolated simulated responses using the revised Skill: (1) approved teaching design with formats not yet discussed; (2) first-package delivery with checks passed but no instructional acceptance; and (3) a request to simplify the assignment/rubric while keeping the data and patterns. The responses respectively previewed all four outputs and waited for format choices; invited review and a return to Plan; and proposed a scoped document revision that preserved the data and awaited unresolved decisions.
+
+These were response-only simulations with generation, document production, and external actions prohibited. They support the observed messages and stated intended actions, not actual conversion quality, data preservation during a real revision, or full instructor usability. The next trial should include real format choices, exported files, feedback on version 1, a revised package, and final acceptance.
+
 ## Boundaries
 
 - The three new domains are development examples with Agent-proposed defaults, not recorded instructor interviews or an independent domain sample.

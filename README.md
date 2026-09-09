@@ -6,24 +6,25 @@
 
 DataCanvas EDU helps instructors create synthetic business datasets around the discoveries students should practice making. Describe your teaching goals; the Agent helps define the scenario and patterns, writes generation code, checks the resulting data, and prepares teaching materials for your review.
 
-**Instructor control:** The Agent asks which hidden patterns you want students to discover, proposes options, and waits for your feedback. It then presents one assignment and a matching discovery-based rubric for approval before generating data. The default is one assignment; multiple assignments require an explicit request.
+**Instructor control:** The Agent asks which hidden patterns you want students to discover, proposes options, and waits for your feedback. Before generating, it presents one assignment, its discovery-based rubric, and a preview of the output files with recommended formats. You choose or accept those formats. The first package is for review: your feedback can start another planning and revision cycle. The default remains one assignment.
 
 The workflow supports AI-assisted business analytics education: students frame questions, guide exploration, check evidence, and communicate recommendations. The Skill supports the instructor who designs that learning environment.
 
-**Status:** Public prototype for exploration and feedback. Version 0.1.2 revises the interview and assessment workflow after the first instructor trial exposed premature generation and unintended assignment expansion. The numerical helper is unchanged. GitHub marketplace import/update and plugin installation were verified through v0.1.2 using Codex CLI 0.153.4 bundled with ChatGPT desktop on macOS; v0.1.2 is installed and enabled on the development computer. A complete instructor trial of the revised workflow and other platform routes remains necessary. License selection and a formal GitHub Release are pending.
+**Status:** Public prototype for exploration and feedback. Version 0.1.3 adds a pre-generation output/format conversation and an explicit instructor review-and-revision loop to the v0.1.2 approval workflow. The numerical helper is unchanged. See [validation status](docs/VALIDATION.md) for package, installation, and conversation-check evidence. A complete instructor trial through a revision cycle and other platform routes remains necessary. License selection and a formal GitHub Release are pending.
 
 ## Try the Skill
 
 1. Follow the [installation guide](docs/INSTALLATION.md) for your Agent tool.
 2. Start a fresh conversation and describe a teaching goal. You do not need to write code or complete a technical specification yourself.
-3. Choose or revise the proposed hidden patterns, then approve the concrete assignment and rubric. The Agent must wait for those decisions before generation.
-4. Inspect the generated teaching package and request revisions before accepting it.
+3. Choose or revise the proposed hidden patterns, then approve the concrete assignment, rubric, and output formats. The Agent must wait for those decisions before generation.
+4. Inspect the first teaching package. The Agent will invite feedback with concrete examples of what can change.
+5. Request revisions in plain language, or accept the package. The Agent carries forward settled decisions and returns to planning for the affected parts; you do not need to repeat the initial interview.
 
 Example starting request:
 
-> Use the DataCanvas EDU Skill to design a synthetic dataset for my introductory business analytics class. Students may use AI. Ask which hidden patterns I want students to discover and propose options. Then show me one assignment and a matching rubric. Wait for my approval before generating the data and reference solution.
+> Use the DataCanvas EDU Skill to design a synthetic dataset for my introductory business analytics class. Students may use AI. Propose hidden patterns, one assignment, and its rubric. Explain what files I will receive and recommend formats. Wait for my approval before generating, then help me review and revise the first version.
 
-Use [this feedback guide](docs/TRY_AND_REPORT.md) to record your trial. For Claude's Skill upload interface, the current download is [datacanvas-edu-v0.1.2.zip](dist/datacanvas-edu-v0.1.2.zip). It contains the Skill folder; the repository's examples and documentation remain separate. The earlier v0.1.1 ZIP remains available as a comparison baseline.
+Use [this feedback guide](docs/TRY_AND_REPORT.md) to record your trial. For Claude's Skill upload interface, the current download is [datacanvas-edu-v0.1.3.zip](dist/datacanvas-edu-v0.1.3.zip). It contains the Skill folder; the repository's examples and documentation remain separate. Earlier ZIPs remain available for comparison.
 
 **Importing a GitHub plugin marketplace:** Add `https://github.com/BANG23333/datacanvas-edu` in your Codex/ChatGPT desktop plugin interface, then install **DataCanvas EDU** from that marketplace. This repository includes the marketplace manifest and a self-contained plugin. See the [GitHub import instructions](docs/INSTALLATION.md#github-marketplace-import-codexchatgpt-desktop) for the interface that reported a missing manifest.
 
@@ -31,10 +32,23 @@ Use [this feedback guide](docs/TRY_AND_REPORT.md) to record your trial. For Clau
 
 | Phase | Agent work | Instructor decision |
 | --- | --- | --- |
-| Plan | Ask about hidden patterns, propose choices, then draft one assignment and its discovery-based rubric | Approve the patterns and concrete teaching design before generation |
+| Plan | Ask about hidden patterns, propose one assignment and its rubric, and preview outputs and recommended formats | Approve the teaching design and choose delivery formats |
 | Create | Write and execute generation code, retaining parameters and random seeds | Resolve substantive design tradeoffs |
 | Verify / Test Analysis | Measure the exported data, check constraints and intended patterns, and prepare reference evidence | Review failures, interpretations, and proposed revisions |
-| Evaluate | Assemble the data, assignment, reference key, rubric, and reproducibility files | Accept or revise the teaching package |
+| Evaluate | Present the package in the chosen formats, summarize checks, and invite feedback | Accept the version or return to Plan to revise the agreed parts |
+
+```mermaid
+flowchart LR
+    P[Plan together] --> C[Create approved materials]
+    C --> V[Verify data and files]
+    V --> E[Instructor reviews version]
+    E -->|Changes requested| P
+    E -->|Accepted| A[Ready for teaching]
+```
+
+Before work starts, the Agent explains four outputs: **data, assignment, instructor solution, and rubric**. For a Python course, a useful starting recommendation is CSV data and editable Word documents. Excel workbooks, PDFs, and other suitable formats can be discussed. These are choices to confirm, and exports depend on the host's available tools. The format of the assignment document is separate from the format students must submit.
+
+After delivery, feedback can be as simple as "make this pattern subtler," "add a seasonal pattern," or "shorten the assignment and simplify the rubric." The Agent proposes any unresolved changes, preserves previous versions, revises the agreed parts, and brings the result back for review. Document-only changes preserve the approved data. Technical generation retries are separate from this instructor-directed loop.
 
 The resulting package includes:
 
@@ -97,10 +111,10 @@ Edit the canonical Skill under `skills/datacanvas-edu/`, then rebuild both distr
 
 The original implementation was checked across four configurations, with 16 runs and 64 required numerical check evaluations. All met their configured criteria. Same-seed repeats reproduced dataset bytes, and 18 behavioral tests passed. These are scoped engineering results, not a teacher usability study or evidence of student learning. See [validation and research status](docs/VALIDATION.md).
 
-The first instructor trial and the v0.1.2 response are documented in [trial feedback](docs/TRIAL_FEEDBACK_V0.1.2.md). Next steps are a fresh-conversation trial of the revised Skill, further feedback-driven revisions, platform checks, and a formal versioned release. The intended preprint will document the framework and measured artifact evidence. Analysis-Agent comparisons and student learning studies remain separate research stages.
+The first instructor trial and the v0.1.2 response are documented in [trial feedback](docs/TRIAL_FEEDBACK_V0.1.2.md). The v0.1.3 follow-up makes output choices and repeated review more explicit; see the [changelog](CHANGELOG.md). Next steps are a fresh-conversation trial through format selection, first delivery, an instructor-requested revision, and final acceptance, followed by platform checks and a formal versioned release. The intended preprint will document the framework and measured artifact evidence. Analysis-Agent comparisons and student learning studies remain separate research stages.
 
 ## Contributing and release status
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for useful feedback and example contributions, and [CHANGELOG.md](CHANGELOG.md) for version history. All repository artifacts and code use English; instructor conversations may use the instructor's preferred language.
 
-The repository became public on 2026-09-08. A license and formal citation will be added when those decisions are finalized. The source, v0.1.2 Skill ZIP, prior v0.1.1 ZIP, and repository-hosted plugin marketplace are available here. This does not imply a paper, formal GitHub Release, or listing in an official curated plugin catalog.
+The repository became public on 2026-09-08. A license and formal citation will be added when those decisions are finalized. The source, v0.1.3 Skill ZIP, prior ZIPs, and repository-hosted plugin marketplace are available here. This does not imply a paper, formal GitHub Release, or listing in an official curated plugin catalog.
