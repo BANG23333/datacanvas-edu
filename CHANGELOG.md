@@ -7,6 +7,7 @@
 - Add a reproducible plugin bundling command with a check for missing or stale Skill files.
 - Document marketplace import separately from standalone Skill folder installation and Claude Skill ZIP upload.
 - Preserve the v0.1.1 standalone Skill, ZIP, and numerical behavior. The plugin is a new distribution wrapper for that same Skill.
+- Verify import from the public GitHub URL and installation through Codex CLI 0.153.4 bundled with ChatGPT desktop on macOS; the plugin is installed and enabled, with all six installed files matching the source.
 
 ## Repository publication — 2026-09-08
 

@@ -14,7 +14,9 @@ The v0.1.1 naming and packaging revision preserves the original generation and m
 
 The GitHub import fix adds the repository marketplace manifest and plugin manifest that were missing from the original standalone Skill distribution. The plugin-creator validator passed on the new plugin, and the bundle check confirmed that all five bundled Skill files match the canonical standalone Skill byte for byte. The standalone v0.1.1 ZIP is unchanged.
 
-These format and completeness checks do not establish a completed instructor conversation or cross-platform runtime compatibility. Installation observations will be recorded separately.
+On 2026-09-08, Codex CLI 0.153.4 bundled with ChatGPT desktop on macOS successfully imported the public GitHub repository and installed `datacanvas-edu@datacanvas-edu` version 0.1.1. The plugin listing reported **installed, enabled**. All six installed files (the plugin manifest and five Skill files) matched the source byte for byte. See the [installation check record](plugin_installation_checks.json).
+
+This verifies the actual GitHub marketplace import and local plugin installation path that previously failed. It does not establish a completed instructor conversation, UI walkthrough, Claude installation, or cross-platform runtime compatibility. Start a new conversation for the instructor trial.
 
 ## Boundaries
 

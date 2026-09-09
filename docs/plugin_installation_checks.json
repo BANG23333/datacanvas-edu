@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-08",
+  "platform": "macOS",
+  "host": "Codex CLI bundled with ChatGPT desktop",
+  "cli_version": "0.153.4",
+  "repository": "https://github.com/BANG23333/datacanvas-edu",
+  "imported_commit": "0c7bdaba0f3efab4fb2b53f199b3f8e871eb5d56",
+  "marketplace": "datacanvas-edu",
+  "plugin": "datacanvas-edu@datacanvas-edu",
+  "plugin_version": "0.1.1",
+  "checks": {
+    "plugin_creator_validation": "passed",
+    "canonical_skill_bundle_match": "passed: 5 files",
+    "public_github_marketplace_import": "passed",
+    "plugin_installation": "passed",
+    "plugin_listing_status": "installed, enabled",
+    "installed_source_match": "passed: 6 files",
+    "remote_source_match_at_imported_commit": "passed: 39 repository files",
+    "standalone_skill_zip": "unchanged from v0.1.1"
+  },
+  "not_tested": [
+    "Fresh-conversation Skill invocation and complete instructor workflow",
+    "Desktop UI import walkthrough",
+    "Other ChatGPT installation surfaces",
+    "Claude installation and end-to-end execution"
+  ]
+}
