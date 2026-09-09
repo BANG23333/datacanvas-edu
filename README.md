@@ -10,10 +10,6 @@ DataCanvas EDU helps instructors create synthetic business datasets around the d
 
 **Instructor control:** The Agent asks which hidden patterns you want students to discover, proposes options, and waits for your feedback. Before generating, it presents one assignment, its discovery-based rubric, and a preview of the output files with recommended formats. You choose or accept those formats. The first package is for review: your feedback can start another planning and revision cycle. The default remains one assignment.
 
-The workflow supports AI-assisted business analytics education: students frame questions, guide exploration, check evidence, and communicate recommendations. The Skill supports the instructor who designs that learning environment.
-
-**Status:** Public prototype for exploration and feedback. Version 0.1.3 adds a pre-generation output/format conversation and an explicit instructor review-and-revision loop to the v0.1.2 approval workflow. The numerical helper is unchanged. See [validation status](docs/VALIDATION.md) for package, installation, and conversation-check evidence. A complete instructor trial through a revision cycle and other platform routes remains necessary. License selection and a formal GitHub Release are pending.
-
 ## Try the Skill
 
 1. Follow the [installation guide](docs/INSTALLATION.md) for your Agent tool.
@@ -22,9 +18,42 @@ The workflow supports AI-assisted business analytics education: students frame q
 4. Inspect the first teaching package. The Agent will invite feedback with concrete examples of what can change.
 5. Request revisions in plain language, or accept the package. The Agent carries forward settled decisions and returns to planning for the affected parts; you do not need to repeat the initial interview.
 
-Example starting request:
+### A simple example conversation
 
-> Use the DataCanvas EDU Skill to design a synthetic dataset for my introductory business analytics class. Students may use AI. Propose hidden patterns, one assignment, and its rubric. Explain what files I will receive and recommend formats. Wait for my approval before generating, then help me review and revise the first version.
+Start with **"Help me create a teaching dataset."** The AI guides you through the choices:
+
+> **AI:** What business domain should the case cover? Retail, healthcare operations, HR, or SaaS?
+>
+> **Instructor:** Healthcare operations.
+>
+> **AI:** Who are the students, and what is their analytics level?
+>
+> **Instructor:** Introductory undergraduate analytics students.
+>
+> **AI:** What tools will they use? Excel, Python, R, or Tableau / Power BI?
+>
+> **Instructor:** Python with pandas.
+>
+> **AI:** How large should the assignment be? A short lab, weekly homework, or a multi-week project?
+>
+> **Instructor:** A single-class lab, about 2–3 hours.
+>
+> **AI:** Let's use a fictional network of four outpatient clinics, with one quarter of data and one row per scheduled appointment. Here are four patterns students could discover:
+>
+> - **A — Booking ahead:** Appointments booked further in advance have more no-shows.
+> - **B — Reminders:** Reminders are associated with fewer no-shows mainly for appointments booked far ahead.
+> - **C — Clinic comparisons:** A clinic looks slower overall but faster within appointment types because it handles a different mix of appointments.
+> - **D — A misleading clue:** Insurance appears related to no-shows, but the difference disappears when booking lead time is considered.
+>
+> **AI:** I suggest grading A, B, and C, with D as an ungraded check against misleading conclusions. Which would you like to include?
+>
+> **Instructor:** All four.
+>
+> **AI:** How subtle should the hardest pattern be: clear once students compare groups, moderate, or challenging?
+>
+> **Instructor:** Moderate.
+
+The AI then proposes the assignment, rubric, and file formats for your approval. After creating and checking the package, it helps you review the results and revise anything you want to change.
 
 Use [this feedback guide](docs/TRY_AND_REPORT.md) to record your trial. For Claude's Skill upload interface, the current download is [datacanvas-edu-v0.1.3.zip](dist/datacanvas-edu-v0.1.3.zip). It contains the Skill folder; the repository's examples and documentation remain separate. Earlier ZIPs remain available for comparison.
 
