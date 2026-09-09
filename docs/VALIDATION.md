@@ -26,6 +26,8 @@ The revised canonical Skill and plugin passed their format validators. All six f
 
 An independent agent completed two simulated response checks: first continuing the reported conversation after "both," then continuing after the simulated instructor approved one assignment and three patterns. The first response proposed one combined assignment and asked for pattern choices. The second proposed the remaining assignment and rubric details and asked for approval before creation. These checks used a harness that prohibited generation and external actions; they evaluate the responses and stated intended actions, not an unconstrained end-to-end execution. The rubric guide also clarifies concise scoring and single application of each deduction.
 
+The GitHub marketplace was refreshed and v0.1.2 installed through the same Codex CLI on macOS. The plugin is listed as installed and enabled; all seven installed files match source. All 44 repository files at the v0.1.2 implementation commit matched the local file hashes. See the update entry in [installation checks](plugin_installation_checks.json).
+
 The approval requirements are Skill instructions. The direct Python developer utility does not authenticate or enforce human approval. A fresh instructor conversation must verify that the host follows these instructions through generation, reference-solution review, and final acceptance. Cross-platform use and educational outcomes remain unestablished.
 
 ## Boundaries

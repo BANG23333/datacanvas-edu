@@ -23,5 +23,19 @@
     "Desktop UI import walkthrough",
     "Other ChatGPT installation surfaces",
     "Claude installation and end-to-end execution"
-  ]
+  ],
+  "v0.1.2_update": {
+    "date": "2026-09-08",
+    "implementation_commit": "b82fc3c3de7863138428a7fe52617abedce91298",
+    "marketplace_upgrade": "passed",
+    "plugin_version": "0.1.2",
+    "status": "installed, enabled",
+    "installed_files_match": "passed: 7 files",
+    "repository_files_match": "passed: 44 files at implementation commit",
+    "skill_zip_and_bundle": "passed: 6 files each, matching canonical source",
+    "skill_and_plugin_validators": "passed",
+    "numerical_helper": "unchanged",
+    "conversation_checks": "Two simulated next-response checks; generation and external actions prohibited by test harness. Responses proposed and waited at the relevant checkpoints.",
+    "pending": "Fresh instructor conversation through generation and final acceptance; other platform installation and use."
+  }
 }

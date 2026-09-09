@@ -10,7 +10,7 @@ DataCanvas EDU helps instructors create synthetic business datasets around the d
 
 The workflow supports AI-assisted business analytics education: students frame questions, guide exploration, check evidence, and communicate recommendations. The Skill supports the instructor who designs that learning environment.
 
-**Status:** Public prototype for exploration and feedback. Version 0.1.2 revises the interview and assessment workflow after the first instructor trial exposed premature generation and unintended assignment expansion. The numerical helper is unchanged. GitHub marketplace import and plugin installation were verified for v0.1.1 using Codex CLI 0.153.4 bundled with ChatGPT desktop on macOS. A complete instructor trial of the revised workflow and other platform routes remains necessary. License selection and a formal GitHub Release are pending.
+**Status:** Public prototype for exploration and feedback. Version 0.1.2 revises the interview and assessment workflow after the first instructor trial exposed premature generation and unintended assignment expansion. The numerical helper is unchanged. GitHub marketplace import/update and plugin installation were verified through v0.1.2 using Codex CLI 0.153.4 bundled with ChatGPT desktop on macOS; v0.1.2 is installed and enabled on the development computer. A complete instructor trial of the revised workflow and other platform routes remains necessary. License selection and a formal GitHub Release are pending.
 
 ## Try the Skill
 
