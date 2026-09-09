@@ -37,5 +37,19 @@
     "numerical_helper": "unchanged",
     "conversation_checks": "Two simulated next-response checks; generation and external actions prohibited by test harness. Responses proposed and waited at the relevant checkpoints.",
     "pending": "Fresh instructor conversation through generation and final acceptance; other platform installation and use."
+  },
+  "v0.1.3_update": {
+    "date": "2026-09-09",
+    "implementation_commit": "6b032bd772f90e2d15d4f79e8a04bc468f9c5f35",
+    "marketplace_upgrade": "passed",
+    "plugin_version": "0.1.3",
+    "status": "installed, enabled",
+    "installed_files_match": "passed: 8 files",
+    "repository_files_match": "passed: 47 files at implementation commit",
+    "skill_zip_and_bundle": "passed: 7 files each, matching canonical source",
+    "skill_and_plugin_validators": "passed",
+    "numerical_helper": "unchanged",
+    "conversation_checks": "Three response-only simulations: output format choices before generation; review invitation at delivery; scoped document revisions preserving data. Production actions were prohibited by the simulation harness.",
+    "pending": "Real output export/rendering and an instructor-directed revision cycle through final acceptance; other platform trials."
   }
 }

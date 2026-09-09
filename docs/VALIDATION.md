@@ -1,6 +1,6 @@
 # Validation and Research Status
 
-Date: 2026-09-08. This record separates engineering evidence from planned user and research evaluations.
+Updated: 2026-09-09. This record separates engineering evidence from planned user and research evaluations.
 
 ## Existing engineering evidence
 
@@ -37,6 +37,8 @@ Follow-up feedback requested a clear pre-generation explanation of the outputs, 
 The Skill and plugin validators passed. All seven Skill files match between the canonical source, plugin bundle, and v0.1.3 ZIP; version identifiers agree and relative reference links resolve. Earlier ZIPs and the numerical helper remain unchanged.
 
 An independent agent produced three isolated simulated responses using the revised Skill: (1) approved teaching design with formats not yet discussed; (2) first-package delivery with checks passed but no instructional acceptance; and (3) a request to simplify the assignment/rubric while keeping the data and patterns. The responses respectively previewed all four outputs and waited for format choices; invited review and a return to Plan; and proposed a scoped document revision that preserved the data and awaited unresolved decisions.
+
+On 2026-09-09, the GitHub marketplace update and plugin installation succeeded for v0.1.3 through Codex CLI 0.153.4 on macOS. The plugin is installed and enabled, and all eight installed files match source. All 47 repository files at the implementation commit matched the local hashes. See [installation checks](plugin_installation_checks.json).
 
 These were response-only simulations with generation, document production, and external actions prohibited. They support the observed messages and stated intended actions, not actual conversion quality, data preservation during a real revision, or full instructor usability. The next trial should include real format choices, exported files, feedback on version 1, a revised package, and final acceptance.
 
