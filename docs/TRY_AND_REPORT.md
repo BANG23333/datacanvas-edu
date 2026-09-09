@@ -1,6 +1,6 @@
 # Researcher Trial and Feedback
 
-The researcher will personally test DataCanvas EDU before public release. The current GitHub package is v0.1.1: the DataCanvas EDU naming and distribution revision of the original v0.1.0 prototype. Core numerical behavior is unchanged. The original local prototype remains available for comparison.
+The researcher will personally test DataCanvas EDU and provide feedback for the next functional revision. The repository is now public. The current GitHub package is v0.1.1: the DataCanvas EDU naming and distribution revision of the original v0.1.0 prototype. Core numerical behavior is unchanged. The original local prototype remains available for comparison.
 
 Start with a fresh conversation and a real teaching brief. Any business domain is welcome. Let the Agent conduct the interview and prepare the technical specification; manually running a supplied example tests the helper, not the conversational Skill.
 

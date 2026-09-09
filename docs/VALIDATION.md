@@ -26,4 +26,4 @@ The primary contribution is an instructor-guided educational data-generation fra
 
 An exploratory comparison of AI analyses on generated and public real-world data is planned once the comparison sample, model choices, budgets, and scoring protocol are available. Differences between datasets will limit causal interpretation. Student engagement, learning, and transfer remain future empirical questions.
 
-The immediate next step is the researcher's own trial, followed by feedback-driven revision and platform checks. A public license, release, and formal paper citation are pending.
+The repository is public as of 2026-09-08. The immediate next step is the researcher's own trial, followed by feedback-driven revision and platform checks. License selection, a formal versioned release, and a formal paper citation remain pending.

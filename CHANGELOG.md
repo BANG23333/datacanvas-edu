@@ -1,5 +1,11 @@
 # Changelog
 
+## Repository publication — 2026-09-08
+
+- Make the repository public at the researcher's request.
+- Update documentation to reflect public availability while retaining prototype and validation limits.
+- Keep the v0.1.1 Skill and numerical code unchanged. A formal GitHub Release and license selection remain pending.
+
 ## 0.1.1 — 2026-09-08 — Private testing package
 
 - Adopt DataCanvas EDU as the project name and `datacanvas-edu` as the distributed Skill name.

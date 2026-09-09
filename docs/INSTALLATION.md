@@ -18,7 +18,7 @@ References: [Use skills in Claude](https://support.claude.com/en/articles/125121
 
 ## Claude Code
 
-Download or clone this repository using a GitHub account with access. Copy `skills/datacanvas-edu/` into one of these locations:
+Download or clone this public repository. Copy `skills/datacanvas-edu/` into one of these locations:
 
 - Personal: `~/.claude/skills/datacanvas-edu/`.
 - Project: `.claude/skills/datacanvas-edu/` inside the project where you want to use it.

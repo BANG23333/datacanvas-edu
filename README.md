@@ -8,7 +8,7 @@ DataCanvas EDU helps instructors create synthetic business datasets around the d
 
 The workflow supports AI-assisted business analytics education: students frame questions, guide exploration, check evidence, and communicate recommendations. The Skill supports the instructor who designs that learning environment.
 
-**Status:** Private prototype for researcher testing. The core Python workflow has engineering validation; installation and conversational use in ChatGPT, Claude, and other Agent environments still need direct testing. Public release and license selection are pending.
+**Status:** Public prototype for exploration and feedback. The core Python workflow has engineering validation; installation and conversational use in ChatGPT, Claude, and other Agent environments still need direct testing. License selection and a formal versioned release are pending.
 
 ## Try the Skill
 
@@ -87,10 +87,10 @@ python scripts/package_skill.py
 
 The original implementation was checked across four configurations, with 16 runs and 64 required numerical check evaluations. All met their configured criteria. Same-seed repeats reproduced dataset bytes, and 18 behavioral tests passed. These are scoped engineering results, not a teacher usability study or evidence of student learning. See [validation and research status](docs/VALIDATION.md).
 
-Next steps are the researcher's own Skill trial, feedback-driven revisions, platform installation and end-to-end checks, and preparation of a public GitHub release. The intended preprint will document the framework and measured artifact evidence. Analysis-Agent comparisons and student learning studies remain separate research stages.
+Next steps are the researcher's own Skill trial, feedback-driven revisions, platform installation and end-to-end checks, and preparation of a formal versioned release. The intended preprint will document the framework and measured artifact evidence. Analysis-Agent comparisons and student learning studies remain separate research stages.
 
 ## Contributing and release status
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for useful feedback and example contributions, and [CHANGELOG.md](CHANGELOG.md) for version history. All repository artifacts and code use English; instructor conversations may use the instructor's preferred language.
 
-The repository is private during initial testing. A public license and formal citation will be added when those release decisions are finalized. No paper or public release is claimed yet.
+The repository became public on 2026-09-08. A license and formal citation will be added when those decisions are finalized. The current source and v0.1.1 Skill ZIP are available in this repository; no paper, formal GitHub Release, or marketplace listing is claimed yet.
