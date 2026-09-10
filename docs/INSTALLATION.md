@@ -1,112 +1,152 @@
 # Install DataCanvas EDU
 
-Current version: **0.1.3**. Skill name: `datacanvas-edu`. The installable directory is [skills/datacanvas-edu](../skills/datacanvas-edu/). Its `SKILL.md`, scripts, and references belong together.
+Add DataCanvas EDU to your AI tool, then start a conversation about your class. Current Skill version: **0.1.3**.
 
-These setup routes follow the official documentation reviewed on 2026-09-08. The DataCanvas EDU package has not yet completed installation and conversational execution trials on every host. Record your tool, version or surface, and observed outcome when testing. Account availability and organization settings can affect the interfaces below.
+[ChatGPT](#chatgpt) · [Claude app](#claude-app) · [Codex](#codex) · [Claude Code](#claude-code)
 
-## GitHub marketplace import (Codex/ChatGPT desktop)
+<a id="runtime-and-updates"></a>
 
-Use this route in the desktop plugin interface that offers importing a marketplace from GitHub. It addresses the error `marketplace root does not contain a supported manifest`.
+## Before you start: Python
 
-1. Open the plugin marketplace import control you used previously.
-2. Enter the repository URL: `https://github.com/BANG23333/datacanvas-edu`.
-3. Add the marketplace, then select **DataCanvas EDU** and install it.
-4. Start a new conversation, select the installed Skill, and provide your teaching brief.
+**Your AI tool needs access to a working Python 3.10+ environment, with permission to run code and create files.** Installing the Skill does not install Python.
 
-Use the repository URL, not a `blob/main` file URL or a ZIP URL. Adding a marketplace makes its plugins available; installing the plugin is the next step. If a previous failed attempt remains in the interface, retry it against the updated repository. This route applies to surfaces with GitHub marketplace import; other ChatGPT Skill upload interfaces are described below.
+- **If your tool provides Python:** enable its code execution and file creation features and use that environment.
+- **If your tool runs locally and does not provide Python:** install Python 3.10 or newer and make sure the agent can use it. The optional setup commands below create a project environment.
+- **For charts and the bundled examples:** make Matplotlib, NumPy, and pandas available in the same environment. The package versions are listed in [requirements.txt](../requirements.txt); the core numerical helper uses Python's standard library.
 
-The repository contains:
+You can ask your AI to check the setup:
 
-```text
-.agents/plugins/marketplace.json
-plugins/datacanvas-edu/.codex-plugin/plugin.json
-plugins/datacanvas-edu/skills/datacanvas-edu/SKILL.md
-plugins/datacanvas-edu/skills/datacanvas-edu/agents/
-plugins/datacanvas-edu/skills/datacanvas-edu/references/
-plugins/datacanvas-edu/skills/datacanvas-edu/scripts/
+> Check that you can run Python 3.10 or newer, import matplotlib, numpy, and pandas, and create files in this project. If anything is missing, help me set up the Python environment before we use DataCanvas EDU.
+
+<details>
+<summary>Optional: set up Python on your computer</summary>
+
+Install Python from [python.org](https://www.python.org/downloads/). If you have downloaded or cloned this repository, open a terminal in its folder and run:
+
+**macOS / Linux**
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 ```
 
-The marketplace points to `./plugins/datacanvas-edu` relative to the repository root. The plugin includes the complete Skill and requires no separate connector or MCP server. Its supporting Python files are included; host permission to execute code is still required.
+**Windows (PowerShell)**
 
-For Codex CLI users, register the repository and then install the plugin:
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+Ask your agent to use this project's `.venv` environment. Its Python executable is `.venv/bin/python` on macOS/Linux or `.venv\Scripts\python.exe` on Windows.
+
+</details>
+
+<a id="github-marketplace-import-codexchatgpt-desktop"></a>
+
+## ChatGPT
+
+In the ChatGPT desktop interface shown below, install DataCanvas EDU from its GitHub marketplace. You only need to add it once.
+
+### 1. Open Plugins
+
+Select **Plugins** in the left sidebar.
+
+<img src="assets/chatgpt-install-01-plugins.png" alt="ChatGPT sidebar with Plugins selected" width="300">
+
+### 2. Add a marketplace
+
+Click **Add**, then **Add a marketplace**.
+
+<img src="assets/chatgpt-install-02-add-marketplace.png" alt="ChatGPT Add menu with Add a marketplace selected" width="300">
+
+### 3. Enter the repository URL
+
+Paste this into **Source**:
+
+```text
+https://github.com/BANG23333/datacanvas-edu
+```
+
+Set **Git ref** to `main`, leave **Sparse paths** empty, and click **Add marketplace**.
+
+<img src="assets/chatgpt-install-03-marketplace-source.png" alt="Add plugin marketplace dialog with the DataCanvas EDU GitHub URL in the Source field" width="650">
+
+### 4. Install DataCanvas EDU
+
+Open **DataCanvas EDU** in the added marketplace and use its install button (**+**). Adding the marketplace and installing its plugin are two separate steps.
+
+### 5. Start a new chat
+
+Select the installed DataCanvas EDU plugin and send:
+
+> Use DataCanvas EDU to help me create a teaching dataset.
+
+The AI will ask about your class and guide you through the scenario, hidden patterns, assignment, rubric, and output formats. You approve the plan before it generates the teaching package.
+
+If your ChatGPT interface offers **Skills > Create > Upload from your computer** instead, upload the [Skill ZIP](../dist/datacanvas-edu-v0.1.3.zip), enable it, and start a new chat.
+
+## Claude app
+
+1. Download [datacanvas-edu-v0.1.3.zip](../dist/datacanvas-edu-v0.1.3.zip). On its GitHub file page, click the download button.
+2. Enable **code execution and file creation** in Claude.
+3. Open **Customize > Skills**, choose the option to create a Skill, then **Upload a skill**.
+4. Upload the ZIP and enable DataCanvas EDU.
+5. Start a new conversation and ask: **"Use DataCanvas EDU to help me create a teaching dataset."**
+
+Use the linked Skill ZIP for this upload; it contains the Skill and its supporting files.
+
+<a id="codex-local-tools"></a>
+
+## Codex
+
+**Desktop:** follow the [ChatGPT marketplace steps](#chatgpt) in the Plugins interface.
+
+**CLI:** add the marketplace and install its plugin:
 
 ```sh
 codex plugin marketplace add https://github.com/BANG23333/datacanvas-edu
 codex plugin add datacanvas-edu@datacanvas-edu
 ```
 
-The marketplace identifier and plugin identifier are both `datacanvas-edu`. Start a new conversation after installation. Package structure validation is distinct from testing a complete instructor workflow; see [validation status](VALIDATION.md).
+Start a new conversation, select the Skill or include `$datacanvas-edu` in your prompt, and describe your class. Make sure Codex can use your [Python environment](#before-you-start-python).
 
-## Claude app
+<details>
+<summary>Alternative: install the Skill folder manually</summary>
 
-1. Download [datacanvas-edu-v0.1.3.zip](../dist/datacanvas-edu-v0.1.3.zip) from this repository. On its GitHub file page, use the download control.
-2. Enable code execution and file creation in your Claude environment if needed.
-3. Open **Customize > Skills**, choose the option to create a Skill, and select **Upload a skill**.
-4. Upload the ZIP and enable it.
-5. In a new conversation, ask Claude to use DataCanvas EDU with your teaching brief.
+Copy the complete [skills/datacanvas-edu](../skills/datacanvas-edu/) folder to either:
 
-The ZIP has one top-level `datacanvas-edu/` directory containing `SKILL.md` and the supporting resources. Use this Skill ZIP rather than the whole-repository download, which includes an extra repository structure.
+- `~/.agents/skills/datacanvas-edu/` for your personal installation.
+- `.agents/skills/datacanvas-edu/` inside a project for use in that project.
 
-References: [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude), [Create custom skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills).
+Keep `SKILL.md`, scripts, and references together. Restart Codex if the Skill does not appear.
+
+</details>
 
 ## Claude Code
 
-Download or clone this public repository. Copy `skills/datacanvas-edu/` into one of these locations:
+1. Download or clone this repository.
+2. Copy the complete [skills/datacanvas-edu](../skills/datacanvas-edu/) folder to `~/.claude/skills/datacanvas-edu/` for personal use, or `.claude/skills/datacanvas-edu/` inside your project.
+3. Open Claude Code in your project and allow it to run Python and create files.
+4. Enter `/datacanvas-edu` and describe your teaching goal.
 
-- Personal: `~/.claude/skills/datacanvas-edu/`.
-- Project: `.claude/skills/datacanvas-edu/` inside the project where you want to use it.
+<a id="updating-an-earlier-marketplace-installation"></a>
 
-For a new installation on macOS/Linux, these commands run from the repository root and stop if the destination already exists:
+## Updating the Skill
 
-```sh
-python3 -c "from pathlib import Path; import shutil; shutil.copytree('skills/datacanvas-edu', Path.home() / '.claude/skills/datacanvas-edu')"
-```
+- **Marketplace installation:** refresh the marketplace, update DataCanvas EDU, and start a new conversation.
+- **ZIP or folder installation:** replace the installed copy with the latest Skill package, then start a new conversation.
 
-Start or reopen Claude Code in your working project, then invoke:
-
-```text
-/datacanvas-edu
-```
-
-Provide your teaching brief, or ask Claude to propose a suitable scenario. The Agent needs permission to write project files and run Python. Reference: [Claude Code Skills](https://code.claude.com/docs/en/skills).
-
-## Codex local tools
-
-Copy the same Skill folder into a supported discovery location:
-
-- Personal: `~/.agents/skills/datacanvas-edu/`.
-- Project: `.agents/skills/datacanvas-edu/` inside your working project.
-
-For a new personal installation from the repository root:
-
-```sh
-python3 -c "from pathlib import Path; import shutil; shutil.copytree('skills/datacanvas-edu', Path.home() / '.agents/skills/datacanvas-edu')"
-```
-
-Use the Skill selector or, in Codex CLI/IDE, include `$datacanvas-edu` in your prompt. If the new Skill is not visible, restart the tool. Reference: [OpenAI: Build skills](https://learn.chatgpt.com/docs/build-skills).
-
-## ChatGPT
-
-For accounts and surfaces with Skills support, open **Plugins > Skills > Create > Upload from your computer** and follow the upload interface. Use the supported Skill package/file selection offered by that surface. Account and workspace permissions determine availability; a GitHub connector or ordinary chat attachment is not itself a persistent Skill installation.
-
-After installation, select the Skill in the interface or explicitly ask ChatGPT to use DataCanvas EDU. Test that it can read the supporting resources, execute the Python workflow, and return the complete teaching package. Record any packaging or runtime adjustments needed rather than assuming a successful upload establishes full compatibility.
-
-References: [Skills in ChatGPT](https://help.openai.com/en/articles/20001066), [Build skills](https://learn.chatgpt.com/docs/build-skills).
-
-## Runtime and updates
-
-The numerical helper uses Python 3.10+ and its standard library. Reference charts use Matplotlib; WindowDash also needs NumPy and pandas. The Agent may install appropriate dependencies within the host's permitted environment. No separate API key or paid API service is required by the helper itself; your chosen Agent tool has its own access requirements.
-
-Folder copies and downloaded ZIPs are version snapshots. Updating this GitHub repository does not automatically replace a manually installed copy. Keep the prior version for comparison and use the host's update or replacement process after reviewing the changelog. For marketplace installations, use the host's marketplace refresh/update and plugin update controls; do not assume a repository commit has updated an already installed plugin.
-
-
-## Updating an earlier marketplace installation
-
-Version 0.1.3 adds output-format choices and an explicit instructor review-and-revision loop to the earlier approval workflow. Refresh the DataCanvas EDU marketplace, update/install its plugin, and start a new conversation. For Codex CLI:
+<details>
+<summary>Codex CLI update commands</summary>
 
 ```sh
 codex plugin marketplace upgrade datacanvas-edu
 codex plugin add datacanvas-edu@datacanvas-edu
 ```
 
-Confirm the installed plugin reports version `0.1.3`. Updating repository files alone does not replace an old cached Skill in an existing conversation. For Claude Skill uploads or manual folder installations, replace the prior installation using the appropriate host controls and the v0.1.3 package; retain the older ZIP if needed for comparison.
+</details>
+
+## Official guides
+
+[ChatGPT plugins](https://learn.chatgpt.com/docs/plugins) · [OpenAI skills](https://learn.chatgpt.com/docs/build-skills) · [Claude skills](https://support.claude.com/en/articles/12512180-use-skills-in-claude) · [Claude Code skills](https://code.claude.com/docs/en/skills)

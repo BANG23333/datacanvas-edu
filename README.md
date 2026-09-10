@@ -12,6 +12,8 @@ DataCanvas EDU helps instructors create synthetic business datasets around the d
 
 ## Try the Skill
 
+**Python is required:** your Agent tool needs access to Python 3.10+ and permission to run code and create files. Installing the Skill does not install Python. Use the tool's built-in Python environment, or set one up on your computer. See the [Python setup instructions](docs/INSTALLATION.md#before-you-start-python).
+
 1. Follow the [installation guide](docs/INSTALLATION.md) for your Agent tool.
 2. Start a fresh conversation and describe a teaching goal. You do not need to write code or complete a technical specification yourself.
 3. Choose or revise the proposed hidden patterns, then approve the concrete assignment, rubric, and output formats. The Agent must wait for those decisions before generation.
@@ -57,7 +59,7 @@ The AI then proposes the assignment, rubric, and file formats for your approval.
 
 Use [this feedback guide](docs/TRY_AND_REPORT.md) to record your trial. For Claude's Skill upload interface, the current download is [datacanvas-edu-v0.1.3.zip](dist/datacanvas-edu-v0.1.3.zip). It contains the Skill folder; the repository's examples and documentation remain separate. Earlier ZIPs remain available for comparison.
 
-**Importing a GitHub plugin marketplace:** Add `https://github.com/BANG23333/datacanvas-edu` in your Codex/ChatGPT desktop plugin interface, then install **DataCanvas EDU** from that marketplace. This repository includes the marketplace manifest and a self-contained plugin. See the [GitHub import instructions](docs/INSTALLATION.md#github-marketplace-import-codexchatgpt-desktop) for the interface that reported a missing manifest.
+**Installing in ChatGPT:** open **Plugins > Add > Add a marketplace**, enter `https://github.com/BANG23333/datacanvas-edu`, and install **DataCanvas EDU**. Follow the [step-by-step guide with screenshots](docs/INSTALLATION.md#chatgpt). The same marketplace route is available in the Codex desktop Plugins interface.
 
 ## How it works
 
