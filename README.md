@@ -4,6 +4,9 @@
 
 **Turn teaching goals into datasets with instructor-defined patterns, verified reference analyses, and assessment materials.**
 
+> **[Explore the DataCanvas EDU website →](https://datacanvas-edu.bangbangbangan.workers.dev/)**  
+> See how a conversation with AI becomes a teaching dataset.
+
 ![DataCanvas EDU framework showing Plan, Create, Verify and Test Analysis, and Evaluate in an instructor-guided cycle](docs/assets/datacanvas-edu-framework.png)
 
 DataCanvas EDU helps instructors create synthetic business datasets around the discoveries students should practice making. Describe your teaching goals; the Agent helps define the scenario and patterns, writes generation code, checks the resulting data, and prepares teaching materials for your review.
