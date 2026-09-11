@@ -3,7 +3,7 @@ name: datacanvas-edu
 description: Guide instructors to define and approve hidden business patterns, then generate synthetic teaching datasets, checked reference solutions, and a matching assignment and rubric. Use for analytics education across business domains; this is an instructor authoring workflow, not a student assignment solver.
 ---
 
-# DataCanvas EDU
+# DataCanvas-EDU
 
 Turn a teaching brief into a reviewable, reproducible learning environment through **Plan → Create → Verify / Test Analysis → Evaluate → return to Plan when the instructor requests changes**. Generate new data from scratch and revise the generated case through this loop; augmenting an existing external source dataset requires an agreed extension of scope. Write artifacts and code in English. Discussion may use the instructor's preferred language.
 

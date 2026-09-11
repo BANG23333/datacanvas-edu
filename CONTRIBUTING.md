@@ -1,6 +1,6 @@
 # Contributing
 
-DataCanvas EDU is a public prototype. Feedback from the researcher and other users will guide subsequent revisions.
+DataCanvas-EDU is a public prototype. Feedback from the researcher and other users will guide subsequent revisions.
 
 Useful contributions include clearer instructor questions, reproducible failures, tested installation instructions, better reference visualizations, and cases from additional business domains. Keep domain rules and grading scales in case configurations rather than hard-coding them into the shared Skill.
 

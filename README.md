@@ -1,15 +1,15 @@
-# DataCanvas EDU
+# DataCanvas-EDU
 
 *An AI Agent Skill for Synthetic Data Generation in Analytics Education*
 
 **Turn teaching goals into datasets with instructor-defined patterns, verified reference analyses, and assessment materials.**
 
-> **[Explore the DataCanvas EDU website →](https://datacanvas-edu.bangbangbangan.workers.dev/)**  
+> **[Explore the DataCanvas-EDU website →](https://datacanvas-edu.bangbangbangan.workers.dev/)**  
 > See how a conversation with AI becomes a teaching dataset.
 
-![DataCanvas EDU framework showing Plan, Create, Verify and Test Analysis, and Evaluate in an instructor-guided cycle](docs/assets/datacanvas-edu-framework.png)
+![DataCanvas-EDU framework showing Plan, Create, Verify and Test Analysis, and Evaluate in an instructor-guided cycle](docs/assets/datacanvas-edu-framework.png)
 
-DataCanvas EDU helps instructors create synthetic business datasets around the discoveries students should practice making. Describe your teaching goals; the Agent helps define the scenario and patterns, writes generation code, checks the resulting data, and prepares teaching materials for your review.
+DataCanvas-EDU helps instructors create synthetic business datasets around the discoveries students should practice making. Describe your teaching goals; the Agent helps define the scenario and patterns, writes generation code, checks the resulting data, and prepares teaching materials for your review.
 
 **Instructor control:** The Agent asks which hidden patterns you want students to discover, proposes options, and waits for your feedback. Before generating, it presents one assignment, its discovery-based rubric, and a preview of the output files with recommended formats. You choose or accept those formats. The first package is for review: your feedback can start another planning and revision cycle. The default remains one assignment.
 
@@ -62,7 +62,7 @@ The AI then proposes the assignment, rubric, and file formats for your approval.
 
 Use [this feedback guide](docs/TRY_AND_REPORT.md) to record your trial. For Claude's Skill upload interface, the current download is [datacanvas-edu-v0.1.3.zip](dist/datacanvas-edu-v0.1.3.zip). It contains the Skill folder; the repository's examples and documentation remain separate. Earlier ZIPs remain available for comparison.
 
-**Installing in ChatGPT:** open **Plugins > Add > Add a marketplace**, enter `https://github.com/BANG23333/datacanvas-edu`, and install **DataCanvas EDU**. Follow the [step-by-step guide with screenshots](docs/INSTALLATION.md#chatgpt). The same marketplace route is available in the Codex desktop Plugins interface.
+**Installing in ChatGPT:** open **Plugins > Add > Add a marketplace**, enter `https://github.com/BANG23333/datacanvas-edu`, and install **DataCanvas-EDU**. Follow the [step-by-step guide with screenshots](docs/INSTALLATION.md#chatgpt). The same marketplace route is available in the Codex desktop Plugins interface.
 
 ## How it works
 

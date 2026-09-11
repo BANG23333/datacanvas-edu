@@ -1,6 +1,6 @@
-# Install DataCanvas EDU
+# Install DataCanvas-EDU
 
-Add DataCanvas EDU to your AI tool, then start a conversation about your class. Current Skill version: **0.1.3**.
+Add DataCanvas-EDU to your AI tool, then start a conversation about your class. Current Skill version: **0.1.3**.
 
 [ChatGPT](#chatgpt) · [Claude app](#claude-app) · [Codex](#codex) · [Claude Code](#claude-code)
 
@@ -16,7 +16,7 @@ Add DataCanvas EDU to your AI tool, then start a conversation about your class. 
 
 You can ask your AI to check the setup:
 
-> Check that you can run Python 3.10 or newer, import matplotlib, numpy, and pandas, and create files in this project. If anything is missing, help me set up the Python environment before we use DataCanvas EDU.
+> Check that you can run Python 3.10 or newer, import matplotlib, numpy, and pandas, and create files in this project. If anything is missing, help me set up the Python environment before we use DataCanvas-EDU.
 
 <details>
 <summary>Optional: set up Python on your computer</summary>
@@ -46,7 +46,7 @@ Ask your agent to use this project's `.venv` environment. Its Python executable 
 
 ## ChatGPT
 
-In the ChatGPT desktop interface shown below, install DataCanvas EDU from its GitHub marketplace. You only need to add it once.
+In the ChatGPT desktop interface shown below, install DataCanvas-EDU from its GitHub marketplace. You only need to add it once.
 
 ### 1. Open Plugins
 
@@ -70,17 +70,17 @@ https://github.com/BANG23333/datacanvas-edu
 
 Set **Git ref** to `main`, leave **Sparse paths** empty, and click **Add marketplace**.
 
-<img src="assets/chatgpt-install-03-marketplace-source.png" alt="Add plugin marketplace dialog with the DataCanvas EDU GitHub URL in the Source field" width="650">
+<img src="assets/chatgpt-install-03-marketplace-source.png" alt="Add plugin marketplace dialog with the DataCanvas-EDU GitHub URL in the Source field" width="650">
 
-### 4. Install DataCanvas EDU
+### 4. Install DataCanvas-EDU
 
-Open **DataCanvas EDU** in the added marketplace and use its install button (**+**). Adding the marketplace and installing its plugin are two separate steps.
+Open **DataCanvas-EDU** in the added marketplace and use its install button (**+**). Adding the marketplace and installing its plugin are two separate steps.
 
 ### 5. Start a new chat
 
-Select the installed DataCanvas EDU plugin and send:
+Select the installed DataCanvas-EDU plugin and send:
 
-> Use DataCanvas EDU to help me create a teaching dataset.
+> Use DataCanvas-EDU to help me create a teaching dataset.
 
 The AI will ask about your class and guide you through the scenario, hidden patterns, assignment, rubric, and output formats. You approve the plan before it generates the teaching package.
 
@@ -91,8 +91,8 @@ If your ChatGPT interface offers **Skills > Create > Upload from your computer**
 1. Download [datacanvas-edu-v0.1.3.zip](../dist/datacanvas-edu-v0.1.3.zip). On its GitHub file page, click the download button.
 2. Enable **code execution and file creation** in Claude.
 3. Open **Customize > Skills**, choose the option to create a Skill, then **Upload a skill**.
-4. Upload the ZIP and enable DataCanvas EDU.
-5. Start a new conversation and ask: **"Use DataCanvas EDU to help me create a teaching dataset."**
+4. Upload the ZIP and enable DataCanvas-EDU.
+5. Start a new conversation and ask: **"Use DataCanvas-EDU to help me create a teaching dataset."**
 
 Use the linked Skill ZIP for this upload; it contains the Skill and its supporting files.
 
@@ -134,7 +134,7 @@ Keep `SKILL.md`, scripts, and references together. Restart Codex if the Skill do
 
 ## Updating the Skill
 
-- **Marketplace installation:** refresh the marketplace, update DataCanvas EDU, and start a new conversation.
+- **Marketplace installation:** refresh the marketplace, update DataCanvas-EDU, and start a new conversation.
 - **ZIP or folder installation:** replace the installed copy with the latest Skill package, then start a new conversation.
 
 <details>

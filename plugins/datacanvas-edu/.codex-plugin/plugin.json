@@ -8,13 +8,13 @@
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "DataCanvas EDU",
+    "displayName": "DataCanvas-EDU",
     "shortDescription": "Create synthetic datasets for analytics education.",
     "longDescription": "Agree on hidden business patterns, one assignment, its rubric, and preferred output formats before generating synthetic data. Deliver checked reference charts and teaching materials for instructor review, then return to planning to revise the agreed parts in response to feedback.",
     "developerName": "BANG23333",
     "category": "Productivity",
     "capabilities": [],
-    "defaultPrompt": "Use DataCanvas EDU to propose hidden patterns, one assignment, and a rubric. Explain the outputs, recommend file formats, and wait for my approval before generation. After I review the first version, help me revise it from my feedback.",
+    "defaultPrompt": "Use DataCanvas-EDU to propose hidden patterns, one assignment, and a rubric. Explain the outputs, recommend file formats, and wait for my approval before generation. After I review the first version, help me revise it from my feedback.",
     "websiteURL": "https://github.com/BANG23333/datacanvas-edu"
   },
   "homepage": "https://github.com/BANG23333/datacanvas-edu",

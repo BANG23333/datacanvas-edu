@@ -1,5 +1,11 @@
 # Changelog
 
+## Display name refresh — 2026-09-10
+
+- Standardize the displayed product name as **DataCanvas-EDU** across current documentation, the marketplace, the plugin, and the Skill.
+- Rebuild the current v0.1.3 Skill ZIP and its integrity manifest; the workflow and numerical helper are unchanged.
+- Preserve the `datacanvas-edu` installation identifiers and URLs, earlier ZIPs, and historical validation records.
+
 ## 0.1.3 — 2026-09-09 — Output choices and instructor revision loop
 
 - Preview the data, assignment, instructor solution, rubric, and supporting files before generation; recommend useful formats and wait for the instructor's choice or acceptance.

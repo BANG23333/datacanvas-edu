@@ -1,7 +1,7 @@
 {
   "name": "datacanvas-edu",
   "interface": {
-    "displayName": "Datacanvas Edu"
+    "displayName": "DataCanvas-EDU"
   },
   "plugins": [
     {
