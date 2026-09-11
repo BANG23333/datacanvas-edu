@@ -40,7 +40,7 @@
 
 ## 0.1.1 — 2026-09-08 — Private testing package
 
-- Adopt DataCanvas EDU as the project name and `datacanvas-edu` as the distributed Skill name.
+- Establish the project name and adopt `datacanvas-edu` as the distributed Skill name.
 - Package the unchanged numerical helper with the existing specification and verification references.
 - Add repository documentation, platform setup guidance, trial feedback instructions, four separate business examples, and relocated behavioral tests.
 - Supply a downloadable Skill ZIP and a reproducible packaging command.
