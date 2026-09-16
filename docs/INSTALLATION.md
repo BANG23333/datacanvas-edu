@@ -76,6 +76,8 @@ Set **Git ref** to `main`, leave **Sparse paths** empty, and click **Add marketp
 
 Open **DataCanvas-EDU** in the added marketplace and use its install button (**+**). Adding the marketplace and installing its plugin are two separate steps.
 
+<img src="assets/chatgpt-install-04-install-plugin.png" alt="ChatGPT Plugins search results showing DataCanvas-EDU and its plus (+) install button" width="740">
+
 ### 5. Start a new chat
 
 Select the installed DataCanvas-EDU plugin and send:
