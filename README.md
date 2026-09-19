@@ -155,6 +155,22 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for useful feedback and example contribut
 
 The repository became public on 2026-09-08. A license will be added when that decision is finalized. The source, v0.1.3 Skill ZIP, prior ZIPs, and repository-hosted plugin marketplace are available here. This does not imply a formal GitHub Release or listing in an official curated plugin catalog.
 
-## Paper reference
+<a id="paper-reference"></a>
+
+## Citation
+
+If you use DataCanvas-EDU in your research or teaching, please cite our paper.
 
 An, B., Hamdani, M., & Fox, J. (2026). *DataCanvas-EDU: An Agentic Framework for Instructor-Guided Synthetic Data Generation in Business Analytics Education*. arXiv. [arXiv:2609.19617](https://arxiv.org/abs/2609.19617).
+
+```bibtex
+@misc{an2026datacanvasedu,
+  title         = {{DataCanvas-EDU}: An Agentic Framework for Instructor-Guided Synthetic Data Generation in Business Analytics Education},
+  author        = {An, Bang and Hamdani, Maria and Fox, Joseph},
+  year          = {2026},
+  eprint        = {2609.19617},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.HC},
+  url           = {https://arxiv.org/abs/2609.19617}
+}
+```
