@@ -147,10 +147,14 @@ Edit the canonical Skill under `skills/datacanvas-edu/`, then rebuild both distr
 
 The original implementation was checked across four configurations, with 16 runs and 64 required numerical check evaluations. All met their configured criteria. Same-seed repeats reproduced dataset bytes, and 18 behavioral tests passed. These are scoped engineering results, not a teacher usability study or evidence of student learning. See [validation and research status](docs/VALIDATION.md).
 
-The first instructor trial and the v0.1.2 response are documented in [trial feedback](docs/TRIAL_FEEDBACK_V0.1.2.md). The v0.1.3 follow-up makes output choices and repeated review more explicit; see the [changelog](CHANGELOG.md). Next steps are a fresh-conversation trial through format selection, first delivery, an instructor-requested revision, and final acceptance, followed by platform checks and a formal versioned release. The intended preprint will document the framework and measured artifact evidence. Analysis-Agent comparisons and student learning studies remain separate research stages.
+The first instructor trial and the v0.1.2 response are documented in [trial feedback](docs/TRIAL_FEEDBACK_V0.1.2.md). The v0.1.3 follow-up makes output choices and repeated review more explicit; see the [changelog](CHANGELOG.md). Next steps are a fresh-conversation trial through format selection, first delivery, an instructor-requested revision, and final acceptance, followed by platform checks and a formal versioned release. The preprint linked below presents the framework and the WindowDash illustrative case. Analysis-Agent comparisons and student learning studies remain separate research stages.
 
 ## Contributing and release status
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for useful feedback and example contributions, and [CHANGELOG.md](CHANGELOG.md) for version history. All repository artifacts and code use English; instructor conversations may use the instructor's preferred language.
 
-The repository became public on 2026-09-08. A license and formal citation will be added when those decisions are finalized. The source, v0.1.3 Skill ZIP, prior ZIPs, and repository-hosted plugin marketplace are available here. This does not imply a paper, formal GitHub Release, or listing in an official curated plugin catalog.
+The repository became public on 2026-09-08. A license will be added when that decision is finalized. The source, v0.1.3 Skill ZIP, prior ZIPs, and repository-hosted plugin marketplace are available here. This does not imply a formal GitHub Release or listing in an official curated plugin catalog.
+
+## Paper reference
+
+An, B., Hamdani, M., & Fox, J. (2026). *DataCanvas-EDU: An Agentic Framework for Instructor-Guided Synthetic Data Generation in Business Analytics Education*. arXiv. [arXiv:2609.19617](https://arxiv.org/abs/2609.19617).
